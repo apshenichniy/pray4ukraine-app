@@ -1,18 +1,32 @@
 .Header {
-  font-family: 'Gilroy-Semibold', Arial, sans-serif;
-  font-size: 24px;
-  text-transform: uppercase;
-  line-height: 24px;
   padding: 16px 0 13px 0;
   background: #ffd400;
   color: white;
   width: 100%;
   box-sizing: border-box;
   overflow: hidden;
-  white-space: nowrap;
 
   @media (max-width: 480px) {
     font-size: 20px;
     padding: 10px 0;
+  }
+}
+
+.textWrapper {
+  font-family: 'Gilroy-Semibold', Arial, sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  line-height: 24px;
+  white-space: nowrap;
+  animation: 6s infinite linear scroll;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-217px);
   }
 }
