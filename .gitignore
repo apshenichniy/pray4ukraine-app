@@ -33,3 +33,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# vs code
+nftapp.code-workspace
+
+# idea
+.idea
