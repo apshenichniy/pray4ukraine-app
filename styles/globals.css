@@ -14,3 +14,23 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'Gilroy-Bold';
+  src: local('Gilroy-Bold'), url(../assets/Gilroy-Bold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Gilroy-Semibold';
+  src: local('Gilroy-Semibold'), url(../assets/Gilroy-Semibold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Gilroy-Regular';
+  src: local('Gilroy-Regular'), url(../assets/Gilroy-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir-Book';
+  src: local('Avenir-Book'), url(../assets/Avenir-Book.woff) format('woff');
+}

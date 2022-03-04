@@ -1,0 +1,34 @@
+.TeamMember {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin-bottom: 24px;
+}
+
+.name {
+  font-family: 'Gilroy-Bold', Arial, sans-serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+
+  & > *:not(:last-child) {
+    margin-right: 12px;
+  }
+}
+
+.linkIcon {
+  width: 44px;
+  height: 44px;
+  object-fit: none; // one of icons is 102x102 for some reason, I don't have time right now to fix this
+}
