@@ -72,9 +72,8 @@
 
 .leftImage {
   position: absolute;
-  top: 195px;
+  top: 245px;
   left: -106px;
-  transform: translateX(-100%);
 
   @media (max-width: 480px) {
     display: none;
@@ -83,7 +82,7 @@
 
 .rightImage {
   position: absolute;
-  top: 350px;
+  top: 400px;
   right: -90px;
 
   @media (max-width: 480px) {
