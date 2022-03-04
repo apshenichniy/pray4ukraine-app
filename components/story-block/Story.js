@@ -11,7 +11,7 @@ function Story() {
           February 24th, at 5 a.m
         </div>
         <div className={styles.description}>
-          On February 24th, at 5 a.m., all Ukrainians' lives were divided into "before" and "after." The Russian invasion made the whole Ukraine live in shelters, under the signals of sirens, under inhuman bombardments, and fires in their homeland. The War in Ukraine has been called the largest military conflict in Europe since World War II. This War is not only about Ukraine, it has affected the safety of the entire world.
+          On February 24th, at 5 a.m., all Ukrainians&apos; lives were divided into &quot;before&quot; and &quot;after.&quot; The Russian invasion made the whole Ukraine live in shelters, under the signals of sirens, under inhuman bombardments, and fires in their homeland. The War in Ukraine has been called the largest military conflict in Europe since World War II. This War is not only about Ukraine, it has affected the safety of the entire world.
         </div>
         <div className={styles.subtitleAndImage}>
           <div className={styles.subtitle}>

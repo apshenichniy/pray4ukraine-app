@@ -34,3 +34,8 @@ a {
   font-family: 'Avenir-Book';
   src: local('Avenir-Book'), url(../assets/Avenir-Book.woff) format('woff');
 }
+
+@font-face {
+  font-family: 'Aftika-Semibold';
+  src: local('Aftika-Semibold'), url(../assets/Aftika-Semibold.woff) format('woff');
+}

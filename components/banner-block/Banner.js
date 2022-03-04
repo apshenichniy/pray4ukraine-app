@@ -1,5 +1,8 @@
 import styles from  './Banner.module.scss';
 import LinkButton from '../link-button/LinkButton';
+import Timer from '../timer/Timer';
+
+const targetDate = new Date('2022-03-15');
 
 function Banner() {
   return (
@@ -7,7 +10,8 @@ function Banner() {
       <div className={styles.header}>
         <a
           href='https://savelife.in.ua/'
-          target='_blank'>
+          target='_blank'
+          rel='noreferrer'>
           <img
             src='/images/logo.svg'
             className={styles.logo} />
@@ -15,17 +19,20 @@ function Banner() {
         <div>
           <a
             href='https://savelife.in.ua/'
-            target='_blank'>
+            target='_blank'
+            rel='noreferrer'>
             <img src='/images/social-media-twitter.svg' />
           </a>
           <a
             href='https://savelife.in.ua/'
-            target='_blank'>
+            target='_blank'
+            rel='noreferrer'>
             <img src='/images/social-media-discord.svg' />
           </a>
           <a
             href='https://savelife.in.ua/'
-            target='_blank'>
+            target='_blank'
+            rel='noreferrer'>
             <img src='/images/social-media-instagram.svg' />
           </a>
         </div>
@@ -41,7 +48,7 @@ function Banner() {
           Help financially to end the war.
         </div>
         <div className={styles.timer}>
-          1d 1h 1m 1s
+          <Timer date={targetDate} />
         </div>
         <LinkButton link='https://savelife.in.ua'>
           Join our Discord
