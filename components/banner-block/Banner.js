@@ -37,19 +37,19 @@ class Banner extends React.Component {
           </a>
           <div>
             <a
-              href='https://savelife.in.ua/'
+              href='https://twitter.com/wepray4ukraine'
               target='_blank'
               rel='noreferrer'>
               <img src='/images/social-media-twitter.svg' />
             </a>
             <a
-              href='https://savelife.in.ua/'
+              href='https://discord.gg/BRPrEbMgJP'
               target='_blank'
               rel='noreferrer'>
               <img src='/images/social-media-discord.svg' />
             </a>
             <a
-              href='https://savelife.in.ua/'
+              href='https://instagram.com/pray4ukraineofficial'
               target='_blank'
               rel='noreferrer'>
               <img src='/images/social-media-instagram.svg' />
@@ -69,7 +69,7 @@ class Banner extends React.Component {
           <div className={styles.timer}>
             <Timer date={targetDate} />
           </div>
-          <LinkButton link='https://savelife.in.ua'>
+          <LinkButton link='https://discord.gg/BRPrEbMgJP'>
             Join our Discord
           </LinkButton>
           <img

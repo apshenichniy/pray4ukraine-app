@@ -4,6 +4,8 @@ function LinkButton(props) {
   return (
     <a
       href={props.link}
+      target='_blank'
+      rel='noreferrer'
       className={styles.LinkButton}>
       {props.children}
     </a>

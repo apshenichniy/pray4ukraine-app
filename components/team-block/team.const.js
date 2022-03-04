@@ -8,11 +8,11 @@ export const teamMembers = [
     links: [
       {
         icon: buttonInstagram,
-        url: 'https://savelife.in.ua/',
+        url: 'https://www.instagram.com/andrew_bobnyuk/',
       },
       {
         icon: buttonLinkedin,
-        url: 'https://savelife.in.ua/',
+        url: 'https://www.linkedin.com/in/andrew-bobnyuk/',
       },
     ],
   },
@@ -64,11 +64,11 @@ export const teamMembers = [
     links: [
       {
         icon: buttonInstagram,
-        url: 'https://savelife.in.ua/',
+        url: 'https://www.instagram.com/sergey.novozhylov/',
       },
       {
         icon: buttonLinkedin,
-        url: 'https://savelife.in.ua/',
+        url: 'https://www.linkedin.com/in/novozhylov-sergey/',
       },
     ],
   },
@@ -78,7 +78,7 @@ export const teamMembers = [
     links: [
       {
         icon: buttonInstagram,
-        url: 'https://savelife.in.ua/',
+        url: 'https://www.instagram.com/m1kolab/',
       },
       {
         icon: buttonLinkedin,
