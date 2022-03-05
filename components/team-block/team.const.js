@@ -22,7 +22,7 @@ export const teamMembers = [
     links: [
       {
         icon: buttonInstagram,
-        url: 'https://savelife.in.ua/',
+        url: 'https://www.instagram.com/matvey.boogrim/',
       },
       {
         icon: buttonLinkedin,
