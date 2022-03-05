@@ -54,7 +54,7 @@ export const teamMembers = [
       },
       {
         icon: buttonLinkedin,
-        url: 'https://www.linkedin.com/in/alexander-pshenichniy-4b5896ы',
+        url: 'https://www.linkedin.com/in/alexander-pshenichniy-4b5896',
       },
     ],
   },
