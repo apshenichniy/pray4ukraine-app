@@ -26,7 +26,7 @@ export const teamMembers = [
       },
       {
         icon: buttonLinkedin,
-        url: 'https://savelife.in.ua/',
+        url: 'https://www.linkedin.com/in/matvey-bugrimenko-7450b7109/',
       },
     ],
   },
@@ -36,11 +36,11 @@ export const teamMembers = [
     links: [
       {
         icon: buttonInstagram,
-        url: 'https://savelife.in.ua/',
+        url: 'https://www.instagram.com/_lena_psh_/',
       },
       {
         icon: buttonLinkedin,
-        url: 'https://savelife.in.ua/',
+        url: 'https://www.linkedin.com/in/elena-pshenichnaya-02a6439a/',
       },
     ],
   },
@@ -50,11 +50,11 @@ export const teamMembers = [
     links: [
       {
         icon: buttonInstagram,
-        url: 'https://savelife.in.ua/',
+        url: 'https://www.instagram.com/apshenichniy/',
       },
       {
         icon: buttonLinkedin,
-        url: 'https://savelife.in.ua/',
+        url: 'https://www.linkedin.com/in/alexander-pshenichniy-4b5896ы',
       },
     ],
   },
