@@ -14,7 +14,8 @@ function TeamMember(props) {
           <a
             key={index}
             href={link.url}
-            target="_blank"
+            target='_blank'
+            rel='noreferrer'
             >
             <img
               src={link.icon}
