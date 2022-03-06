@@ -13,7 +13,9 @@ function TeamMember(props) {
         {(props.member.links || []).map((link, index) => 
           <a
             key={index}
-            href={link.url}>
+            href={link.url}
+            target="_blank"
+            >
             <img
               src={link.icon}
               className={styles.linkIcon} />

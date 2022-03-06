@@ -82,7 +82,21 @@ export const teamMembers = [
       },
       {
         icon: buttonLinkedin,
-        url: 'https://savelife.in.ua/',
+        url: 'https://www.linkedin.com/in/nick-borysov-437a35233',
+      },
+    ],
+  },
+  {
+    photo: '/images/andrew-shatyrko.png',
+    name: 'Andrew Shatyrko',
+    links: [
+      {
+        icon: buttonInstagram,
+        url: 'https://www.instagram.com/andrew_shatyrko/',
+      },
+      {
+        icon: buttonLinkedin,
+        url: 'https://www.linkedin.com/in/andrewshatyrko/',
       },
     ],
   },
