@@ -1,4 +1,4 @@
-import { formatDuration, intervalToDuration, isBefore } from 'date-fns';
+import { intervalToDuration, isBefore } from 'date-fns';
 import React from 'react';
 import styles from './Timer.module.scss';
 
@@ -10,11 +10,12 @@ class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ...this.getTimerInfo(this.props.date),
+      ...this.getTimerInfo(null),
     };
   }
 
   componentDidMount() {
+    this.tick();
     this.timerID = setInterval(
       () => this.tick(),
       1000

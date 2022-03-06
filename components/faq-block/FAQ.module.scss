@@ -1,0 +1,75 @@
+.FAQ {
+  background: #fdf2e0;
+  width: 100%;
+  padding: 80px 20px 72px 20px;
+  color: #494949;
+
+  @media (max-width: 480px) {
+    padding: 48px 20px;
+  }
+}
+
+.title {
+  font-family: 'Gilroy-Bold', Arial, sans-serif;
+  font-size: 44px;
+  text-align: center;
+  margin-bottom: 32px;
+
+  @media (max-width: 480px) {
+    font-size: 32px;
+    text-align: left;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  max-width: 1072px;
+  margin: 0 auto;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+
+  & > *:not(:last-child) {
+    margin-right: 26px;
+  }
+}
+
+.mobileContent {
+  @media (min-width: 481px) {
+    display: none;
+  }
+}
+
+.column {
+  flex: 1 1 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel {
+  background: #fffdfa;
+  padding: 24px;
+  margin-bottom: 24px;
+  border-radius: 20px;
+}
+
+.panelTitle {
+  font-family: 'Gilroy-Bold', Arial, sans-serif;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.mobilePanelTitle {
+  font-family: 'Gilroy-Bold', Arial, sans-serif;
+  font-size: 18px;
+  max-width: 241px;
+}
+
+.panelDescription {
+  font-family: 'Avenir-Book', Arial, sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+}
+
