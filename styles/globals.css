@@ -17,25 +17,25 @@ a {
 
 @font-face {
   font-family: 'Gilroy-Bold';
-  src: local('Gilroy-Bold'), url(../public/assets/Gilroy-Bold.woff) format('woff');
+  src: local('Gilroy-Bold'), url('../public/assets/Gilroy-Bold.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Gilroy-Semibold';
-  src: local('Gilroy-Semibold'), url(../public/assets/Gilroy-Semibold.woff) format('woff');
+  src: local('Gilroy-Semibold'), url('../public/assets/Gilroy-Semibold.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Gilroy-Regular';
-  src: local('Gilroy-Regular'), url(../public/assets/Gilroy-Regular.woff) format('woff');
+  src: local('Gilroy-Regular'), url('../public/assets/Gilroy-Regular.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Avenir-Book';
-  src: local('Avenir-Book'), url(../public/assets/Avenir-Book.woff) format('woff');
+  src: local('Avenir-Book'), url('../public/assets/Avenir-Book.woff') format('woff');
 }
 
 @font-face {
   font-family: 'Aftika-Semibold';
-  src: local('Aftika-Semibold'), url(../public/assets/Aftika-Semibold.woff) format('woff');
+  src: local('Aftika-Semibold'), url('../public/assets/Aftika-Semibold.woff') format('woff');
 }
