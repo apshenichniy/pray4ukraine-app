@@ -5,7 +5,7 @@ function Partners() {
   return (
     <div className={styles.Partners}>
       <div className={styles.title}>
-        Partners of The Project
+        Partners
       </div>
       <div className={styles.content}>
         {(desktopPartners || []).map((partner, index) => 

@@ -1,18 +1,18 @@
 const partners = {
   savelife: {
-    url: 'https://savelife.in.ua/',
+    url: 'https://www.comebackalive.in.ua/',
     logo: '/images/partner-savelife.svg',
   },
   divergent: {
-    url: 'https://savelife.in.ua/',
+    url: 'http://dvrgnt.agency/eng',
     logo: '/images/partner-divergent.webp',
   },
   imaginus: {
-    url: 'https://savelife.in.ua/',
+    url: 'https://imaginusvr.com',
     logo: '/images/partner-imaginus.webp',
   },
   shatyrko: {
-    url: 'https://savelife.in.ua/',
+    url: 'https://shatyrko.com/',
     logo: '/images/partner-shatyrko.webp',
   },
 };

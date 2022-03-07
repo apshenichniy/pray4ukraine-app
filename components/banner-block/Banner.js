@@ -28,7 +28,7 @@ class Banner extends React.Component {
       <div className={styles.Banner}>
         <div className={styles.header}>
           <a
-            href='https://savelife.in.ua/'
+            href='https://www.comebackalive.in.ua/'
             target='_blank'
             rel='noreferrer'>
             <img
