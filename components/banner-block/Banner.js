@@ -58,7 +58,7 @@ class Banner extends React.Component {
         </div>
         <div className={styles.content}>
           <img
-            src='/images/dove-right.svg'
+            src='/images/dove-mobile.svg'
             className={styles.mobileImage}/>
           <div className={styles.title}>
             Unite for peace in Ukraine
@@ -73,8 +73,8 @@ class Banner extends React.Component {
             Join our Discord
           </LinkButton>
           <img
-            src='/images/dove-right.svg'
-            style={{ transform: 'scaleX(-1) translateX(100%) translateY(' + (-1 * (this.state.scrollOffset || 0)) + '%)'}}
+            src='/images/dove-left.svg'
+            style={{ transform: 'translateX(-100%) translateY(' + (-1 * (this.state.scrollOffset || 0)) + '%)'}}
             className={styles.leftImage} />
           <img
             src='/images/dove-right.svg'

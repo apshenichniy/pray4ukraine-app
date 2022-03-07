@@ -43,7 +43,7 @@
     right: 15px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 1280px) {
     .subtitle {
       max-width: 200px;
     }
@@ -75,7 +75,7 @@
   top: 245px;
   left: -106px;
 
-  @media (max-width: 480px) {
+  @media (max-width: 1280px) {
     display: none;
   }
 }
@@ -85,7 +85,7 @@
   top: 400px;
   right: -90px;
 
-  @media (max-width: 480px) {
+  @media (max-width: 1280px) {
     display: none;
   }
 } 
