@@ -9,7 +9,7 @@
   box-sizing: border-box;
 
   @media (max-width: 1280px) {
-    padding-bottom: 97px;
+    padding-bottom: 48px;
   }
 }
 
@@ -20,6 +20,10 @@
   max-width: 944px;
   width: 100%;
   margin: 0 auto 53px auto;
+
+  @media (max-width: 1280px) {
+    margin-bottom: 20px;
+  }
 }
 
 .logo {
@@ -51,11 +55,11 @@
   font-family: 'Gilroy-Bold', Arial, sans-serif;
   font-size: 52px;
   text-align: center;
-  margin-bottom: 19px;
+  margin-bottom: 12px;
 
   @media (max-width: 480px) {
-    font-size: 40px;
-    margin-bottom: 11px;
+    font-size: 36px;
+    margin-bottom: 16px;
     max-width: 290px;
   }
 }
@@ -63,13 +67,25 @@
 .subtitle {
   font-family: 'Gilroy-Regular', Arial, sans-serif;
   font-size: 28px;
-  margin-bottom: 53px;
+  margin-bottom: 66px;
+  text-align: center;
+  max-width: 501px;
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+    margin-bottom: 36px;
+    max-width: 320px;
+  }
+}
+
+.timerTitle {
+  font-family: 'Gilroy-Regular', Arial, sans-serif;
+  font-size: 20px;
+  margin-bottom: 12px;
   text-align: center;
 
   @media (max-width: 480px) {
-    font-size: 24px;
-    margin-bottom: 32px;
-    max-width: 290px;
+    font-size: 16px;
   }
 }
 
@@ -79,6 +95,29 @@
   @media (max-width: 480px) {
     margin-bottom: 40px;
   }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+
+  @media (min-width: 481px) { 
+    & > *:not(:last-child) {
+      margin-right: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column-reverse;
+
+    & > *:not(:first-child) {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.bannerButton {
+  width: 190px;
 }
 
 .leftImage {
@@ -95,7 +134,7 @@
 
 .rightImage {
   position: absolute;
-  top: 0;
+  top: -25px;
   right: -35px;
   transform: translateX(100%);
   width: 275px;

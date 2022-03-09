@@ -1,9 +1,8 @@
 import styles from  './Banner.module.scss';
-import LinkButton from '../link-button/LinkButton';
 import Timer from '../timer/Timer';
 import React from 'react';
 
-const targetDate = new Date('2022-03-15');
+const targetDate = new Date('2022-03-11');
 
 class Banner extends React.Component {
 
@@ -64,14 +63,26 @@ class Banner extends React.Component {
             Unite for peace in Ukraine
           </div>
           <div className={styles.subtitle}>
-            Help financially to end the war.
+            All the money raised will go to the Come Back Alive fund.
+          </div>
+          <div className={styles.timerTitle}>
+            Official minting starts in:
           </div>
           <div className={styles.timer}>
             <Timer date={targetDate} />
           </div>
-          <LinkButton link='https://discord.gg/BRPrEbMgJP'>
-            Join our Discord
-          </LinkButton>
+          <div className={styles.buttons}>
+            <button className={styles.bannerButton + ' button ghost small'}>
+              Fund Agreement
+            </button>
+            <a
+              href='https://discord.gg/BRPrEbMgJP'
+              target='_blank'
+              rel='noreferrer'
+              className={styles.bannerButton + ' button small'}>
+              Join our Discord
+            </a>
+          </div>
           <img
             src='/images/dove-left.svg'
             style={{ transform: 'translateX(-100%) translateY(' + (-1 * (this.state.scrollOffset || 0)) + '%)'}}

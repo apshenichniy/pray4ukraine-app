@@ -1,5 +1,4 @@
 import styles from './Dove.module.scss';
-import LinkButton from '../link-button/LinkButton';
 
 function Dove() {
   return (
@@ -31,9 +30,13 @@ function Dove() {
           <div className={styles.description}>
             The typical plants of Ukraine describe our brave soldiers with civilians who died in the War, and our children born in shelters in War ashes.
           </div>
-          <LinkButton link='https://discord.gg/BRPrEbMgJP'>
+          <a
+            href='https://discord.gg/BRPrEbMgJP'
+            target='_blank'
+            rel='noreferrer'
+            className={styles.bannerButton + ' button'}>
             Join our Discord
-          </LinkButton>
+          </a>
         </div>
       </div>
     </div>
