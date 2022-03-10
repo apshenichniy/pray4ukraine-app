@@ -26,6 +26,11 @@
   }
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
 .logo {
   @media (max-width: 480px) {
     width: 110px;

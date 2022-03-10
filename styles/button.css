@@ -2,6 +2,7 @@
   background: #ef5631;
   padding: 15px 40px;
   border-radius: 27px;
+  border: none;
   font-size: 24px;
   line-height: 24px;
   font-family: Helvetica, Arial, sans-serif;
@@ -19,5 +20,9 @@
 .button.small {
   font-size: 18px;
   line-height: 18px;
-  padding: 14px 20px;
+  padding: 16px 20px 14px;
+}
+
+.button.ghost.small {
+  padding: 15px 19px 13px;
 }

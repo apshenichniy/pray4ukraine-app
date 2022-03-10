@@ -1,8 +1,14 @@
 import styles from  './Banner.module.scss';
 import Timer from '../timer/Timer';
 import React from 'react';
+import { isAfter, isBefore } from 'date-fns';
+import { WalletConnectButton, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 
-const targetDate = new Date('2022-03-11');
+const mintStartDate = new Date('03-11-2022');
+mintStartDate.setSeconds(mintStartDate.getSeconds() + 5);
+mintStartDate.setMilliseconds(0);
+const mintEndDate = new Date(mintStartDate);
+mintEndDate.setDate(mintEndDate.getDate() + 3);
 
 class Banner extends React.Component {
 
@@ -10,6 +16,7 @@ class Banner extends React.Component {
     super(props);
     this.state = {
       scrollOffset: 0,
+      hasMintStarted: false,
     }
   }
 
@@ -19,7 +26,28 @@ class Banner extends React.Component {
       this.setState({
         scrollOffset: (scrollY / innerHeight) * 30,
       })
-    })
+    });
+    this.timerID = setInterval(() => {
+      this.setState({
+        hasMintStarted: this.hasMintStarted(),
+      });
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  executeScroll = () => {
+    if (!this.props.scrollRef || !this.props.scrollRef.current) {
+
+      return;
+    }
+    this.props.scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  hasMintStarted = () => {
+    return isAfter(new Date(), mintStartDate);
   }
 
   render() {
@@ -34,7 +62,7 @@ class Banner extends React.Component {
               src='/images/logo.svg'
               className={styles.logo} />
           </a>
-          <div>
+          <div className={styles.buttons}>
             <a
               href='https://twitter.com/wepray4ukraine'
               target='_blank'
@@ -53,6 +81,11 @@ class Banner extends React.Component {
               rel='noreferrer'>
               <img src='/images/social-media-instagram.svg' />
             </a>
+            <button
+              onClick={this.executeScroll}
+              className='button small'>
+              Mint
+            </button>
           </div>
         </div>
         <div className={styles.content}>
@@ -66,15 +99,23 @@ class Banner extends React.Component {
             All the money raised will go to the Come Back Alive fund.
           </div>
           <div className={styles.timerTitle}>
-            Official minting starts in:
+            { 
+              this.state.hasMintStarted 
+                ? 'Official minting ends in:' 
+                : 'Official minting starts in:' 
+            }
           </div>
           <div className={styles.timer}>
-            <Timer date={targetDate} />
+            <Timer date={this.state.hasMintStarted ? mintEndDate : mintStartDate} />
           </div>
           <div className={styles.buttons}>
-            <button className={styles.bannerButton + ' button ghost small'}>
+            <a
+              href='/documents/NOBEPHMCb.pdf'
+              target='_blank'
+              rel='noreferrer'
+              className={styles.bannerButton + ' button ghost small'}>
               Fund Agreement
-            </button>
+            </a>
             <a
               href='https://discord.gg/BRPrEbMgJP'
               target='_blank'
@@ -83,6 +124,7 @@ class Banner extends React.Component {
               Join our Discord
             </a>
           </div>
+          {/* <WalletMultiButton /> */}
           <img
             src='/images/dove-left.svg'
             style={{ transform: 'translateX(-100%) translateY(' + (-1 * (this.state.scrollOffset || 0)) + '%)'}}

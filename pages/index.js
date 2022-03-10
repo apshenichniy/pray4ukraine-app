@@ -5,19 +5,25 @@ import Dove from '../components/dove-block/Dove';
 import Team from '../components/team-block/Team';
 import FAQ from '../components/faq-block/FAQ';
 import Partners from '../components/partners-block/Partners';
+import { useRef } from 'react';
+import Mint from '../components/mint-block/Mint';
 
 function Home() {
+  const mintRef = useRef(null);
+
   return (
     <div>
       <Header />
-      <Banner />
+      <Banner scrollRef={mintRef} />
       <Story />
       <Dove />
       <Team />
       <FAQ />
       <Partners />
+      <Mint innerRef={mintRef} />
     </div>
   );
 }
 
 export default Home;
+

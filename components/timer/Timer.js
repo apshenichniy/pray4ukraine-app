@@ -45,6 +45,7 @@ class Timer extends React.Component {
       return result;
     }
     const currentDate = new Date();
+    currentDate.setMilliseconds(0);
     if (isBefore(targetDate, currentDate)) {
 
       return result;
