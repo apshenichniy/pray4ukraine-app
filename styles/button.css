@@ -1,4 +1,4 @@
-.button {
+.button, .wallet-adapter-button.button {
   background: #ef5631;
   padding: 15px 40px;
   border-radius: 27px;
@@ -10,6 +10,11 @@
   text-decoration: none;
   text-align: center;
   cursor: pointer;
+  height: auto;
+}
+
+.wallet-adapter-button.button:not([disabled]):hover {
+  background-color: #ef5631;
 }
 
 .button.ghost {

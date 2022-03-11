@@ -9,6 +9,11 @@
 }
 
 @font-face {
+    font-family: 'Gilroy-Medium';
+    src: local('Gilroy-Medium'), url('/assets/Gilroy-Medium.woff') format('woff');
+}
+
+@font-face {
     font-family: 'Gilroy-Regular';
     src: local('Gilroy-Regular'), url('/assets/Gilroy-Regular.woff') format('woff');
 }
