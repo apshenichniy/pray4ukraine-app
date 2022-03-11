@@ -40,6 +40,13 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
+            href="/assets/Gilroy-Medium.woff"
+            as="font"
+            type="font/woff"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
             href="/assets/Avenir-Book.woff"
             as="font"
             type="font/woff"
@@ -52,6 +59,14 @@ class MyDocument extends Document {
             type="font/woff"
             crossOrigin="anonymous"
           />
+          <link
+            rel="preload"
+            href="/assets/Aftika-ExtraBold.woff"
+            as="font"
+            type="font/woff"
+            crossOrigin="anonymous"
+          />
+          <title>PRAY4UKRAINE</title>
         </Head>
         <body>
           <Main />

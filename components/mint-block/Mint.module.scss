@@ -33,6 +33,12 @@
   background: #fffdfa;
   border-radius: 20px;
   color: #494949;
+  position: relative;
+}
+
+.mintAnchor {
+  position: absolute;
+  top: -150px;
 }
 
 .title, .price {
@@ -71,17 +77,59 @@
 }
 
 .mintPrice {
+  background: yellow;
+  display: grid;
+  padding: 35px 41px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.mintPriceBackground {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.mintPriceContent {
+  grid-row: 1;
+  grid-column: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
-  padding: 35px 41px;
-  background: #ffd400;
-  margin-bottom: 32px;
+}
+
+.leftFlower, .rightFlower, .leftStar, .rightStar {
+  position: absolute;
+}
+
+.leftFlower {
+  top: -15px;
+  left: 30px;
+  height: 70px;
+  transform: translateX(-100%) scaleX(-1);
+}
+
+.rightFlower {
+  top: -15px;
+  right: 30px;
+  height: 70px;
+  transform: translateX(100%);
+}
+
+.leftStar {
+  bottom: -12px;
+  left: -60px;
+  transform: translateX(-100%);
+}
+
+.rightStar {
+  top: 45px;
+  right: -80px;
+  transform: translateX(100%);
 }
 
 .price {
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .priceUnit {
@@ -92,9 +140,4 @@
 
 .connectButton {
   margin-bottom: 56px;
-}
-
-.mintStarRight {
-  width: 29px;
-  height: 29px;
 }

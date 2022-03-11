@@ -45,7 +45,6 @@ class Banner extends React.Component {
   render() {
     return (
       <div className={styles.Banner}>
-        
         <div className={styles.content}>
           <img
             src='/images/dove-mobile.svg'

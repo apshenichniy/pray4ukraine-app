@@ -3,10 +3,16 @@
   width: 100%;
   padding: 80px 20px 72px 20px;
   color: #494949;
+  position: relative;
 
   @media (max-width: 480px) {
     padding: 48px 20px;
   }
+}
+
+.FAQAnchor {
+  position: absolute;
+  top: -50px;
 }
 
 .title {

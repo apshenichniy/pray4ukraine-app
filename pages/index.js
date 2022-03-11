@@ -8,9 +8,11 @@ import Partners from '../components/partners-block/Partners';
 import { useRef } from 'react';
 import Mint from '../components/mint-block/Mint';
 import StickyMenu from '../components/sticky-menu-block/StickyMenu';
+import Footer from '../components/footer/Footer';
 
 function Home() {
   const mintRef = useRef(null);
+  const faqRef = useRef(null);
 
   return (
     <div>
@@ -20,9 +22,10 @@ function Home() {
       <Story />
       <Dove />
       <Team />
-      <FAQ />
+      <FAQ innerRef={faqRef} />
       <Partners />
       <Mint innerRef={mintRef} />
+      <Footer scrollRef={faqRef} />
     </div>
   );
 }

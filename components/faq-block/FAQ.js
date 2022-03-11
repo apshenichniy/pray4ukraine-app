@@ -18,7 +18,7 @@ const Accordion = styled((props) => (
   },
 }));
 
-function FAQ() {
+function FAQ(props) {
   const [expanded, setExpanded] = useState(false);
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -26,6 +26,7 @@ function FAQ() {
 
   return (
     <div className={styles.FAQ}>
+      <div ref={props.innerRef} className={styles.FAQAnchor}></div>
       <div className={styles.title}>
         Frequently Asked Questions
       </div>
