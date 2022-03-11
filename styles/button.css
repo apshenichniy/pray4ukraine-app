@@ -5,7 +5,7 @@
   border: none;
   font-size: 24px;
   line-height: 24px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Gilroy-SemiBold', Arial, sans-serif;
   color: white;
   text-decoration: none;
   text-align: center;
@@ -17,12 +17,26 @@
   border: 2px solid white;
 }
 
+.button.secondary {
+  background: white;
+}
+
 .button.small {
+  font-size: 16px;
+  line-height: 16px;
+  padding: 8px 20px;
+}
+
+.button.ghost.small {
+  padding: 8px 18px;
+}
+
+.button.medium {
   font-size: 18px;
   line-height: 18px;
   padding: 16px 20px 14px;
 }
 
-.button.ghost.small {
-  padding: 15px 19px 13px;
+.button.ghost.medium {
+  padding: 14px 18px 12px;
 }

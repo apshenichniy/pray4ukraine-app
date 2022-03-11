@@ -7,6 +7,7 @@ import FAQ from '../components/faq-block/FAQ';
 import Partners from '../components/partners-block/Partners';
 import { useRef } from 'react';
 import Mint from '../components/mint-block/Mint';
+import StickyMenu from '../components/sticky-menu-block/StickyMenu';
 
 function Home() {
   const mintRef = useRef(null);
@@ -14,7 +15,8 @@ function Home() {
   return (
     <div>
       <Header />
-      <Banner scrollRef={mintRef} />
+      <StickyMenu scrollRef={mintRef} />
+      <Banner  />
       <Story />
       <Dove />
       <Team />

@@ -47,7 +47,7 @@ class Timer extends React.Component {
     const currentDate = new Date();
     currentDate.setMilliseconds(0);
     if (isBefore(targetDate, currentDate)) {
-
+      
       return result;
     }
     const duration = intervalToDuration({

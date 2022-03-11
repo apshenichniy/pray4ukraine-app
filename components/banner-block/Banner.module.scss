@@ -13,31 +13,6 @@
   }
 }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 944px;
-  width: 100%;
-  margin: 0 auto 53px auto;
-
-  @media (max-width: 1280px) {
-    margin-bottom: 20px;
-  }
-}
-
-.buttons {
-  display: flex;
-  align-items: center;
-}
-
-.logo {
-  @media (max-width: 480px) {
-    width: 110px;
-    height: 44px;
-  }
-}
-
 .content {
   position: relative;
   display: flex;

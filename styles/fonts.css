@@ -19,6 +19,11 @@
 }
 
 @font-face {
-    font-family: 'Aftika-Semibold';
+    font-family: 'Aftika-SemiBold';
     src: local('Aftika-Semibold'), url('/assets/Aftika-SemiBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Aftika-ExtraBold';
+    src: local('Aftika-ExtraBold'), url('/assets/Aftika-ExtraBold.woff') format('woff');
 }

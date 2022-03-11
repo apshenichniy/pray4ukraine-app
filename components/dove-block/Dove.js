@@ -9,8 +9,8 @@ function Dove() {
         </div>
         
         <picture>
-          <source media="(max-width: 480px)" srcSet='/images/nfts-mobile.png' />
-          <source media="(min-width: 481px)" srcSet='/images/nfts.png' />
+          <source media="(max-width: 540px)" srcSet='/images/nfts-mobile.png' />
+          <source media="(min-width: 541px)" srcSet='/images/nfts.png' />
           <img
             src='/images/nfts.png'
             className={styles.nfts}/>
@@ -31,11 +31,11 @@ function Dove() {
             The typical plants of Ukraine describe our brave soldiers with civilians who died in the War, and our children born in shelters in War ashes.
           </div>
           <a
-            href='https://discord.gg/BRPrEbMgJP'
+            href='https://twitter.com/wepray4ukraine'
             target='_blank'
             rel='noreferrer'
             className={styles.bannerButton + ' button'}>
-            Join our Discord
+            Join our Twitter
           </a>
         </div>
       </div>
