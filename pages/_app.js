@@ -18,6 +18,13 @@ import "../styles/fonts.css";
 import "../styles/button.css";
 require('@solana/wallet-adapter-react-ui/styles.css');
 
+import smoothscroll from 'smoothscroll-polyfill';
+
+// kick off the polyfill!
+if (typeof window !== "undefined") {
+  smoothscroll.polyfill();
+}
+
 const App = ({ Component, pageProps }) => {
     return (
         <Context>
