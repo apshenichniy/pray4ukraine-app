@@ -37,7 +37,7 @@ function Mint(props) {
           <div className={styles.helpText}>
             Check&nbsp;
             <a
-              href='/'
+              href='https://youtu.be/BiZJDWgxIvs'
               target='_blank'
               rel='noreferrer'>
               video instruction
