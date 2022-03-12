@@ -1,7 +1,32 @@
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { useConnection, useWallet } from '@solana/wallet-adapter-react';
+import { Keypair, SystemProgram, Transaction } from '@solana/web3.js';
+
 import styles from './Mint.module.scss';
 
 function Mint(props) {
+  const { connection } = useConnection();
+  const { publicKey, sendTransaction } = useWallet();
+  const test = async () => {
+    if (!publicKey) throw new WalletNotConnectedError();
+
+    const amount = 1.5 * 1000000000; // 1.5 SOL im lamports
+    const transaction = new Transaction().add(
+        SystemProgram.transfer({
+            fromPubkey: publicKey,
+            toPubkey: Keypair.generate().publicKey,
+            lamports: amount,
+        })
+    );
+    try {
+      const signature = await sendTransaction(transaction, connection);
+  
+      await connection.confirmTransaction(signature, 'processed');
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <div className={styles.Mint}>
       <div className={styles.background}>
@@ -30,7 +55,11 @@ function Mint(props) {
           <div className={styles.availabilityText}>
             Max 10 per transaction
           </div>
-          <WalletMultiButton className={styles.connectButton + ' button'} />
+          {
+            publicKey
+              ? <button onClick={test} className={styles.connectButton + ' button'}>Mint</button>
+              : <WalletMultiButton className={styles.connectButton + ' button'} />
+          }
           <div className={styles.helpTitle}>
             Still have questions?
           </div>
