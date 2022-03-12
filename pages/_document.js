@@ -67,6 +67,15 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <title>PRAY4UKRAINE</title>
+          <link rel="icon" type="image/x-icon" href="/logo.jpg"></link>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-CVEPZW061W"></script>
+          <script dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-CVEPZW061W');`}}>
+          </script>
         </Head>
         <body>
           <Main />

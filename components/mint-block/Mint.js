@@ -17,8 +17,7 @@ function Mint(props) {
             MINT PRICE
           </div>
           <div className={styles.mintPrice}>
-            <img className={styles.mintPriceBackground}>
-            </img>
+            <img src='/images/mint-bg.svg' className={styles.mintPriceBackground} />
             <div className={styles.mintPriceContent}>
               <div className={styles.price}>1,50</div>
               <div className={styles.priceUnit}>SOL</div>
@@ -36,7 +35,20 @@ function Mint(props) {
             Still have questions?
           </div>
           <div className={styles.helpText}>
-            Check <a href='/'>video instruction</a> or <a href='/'>contact our support</a>
+            Check&nbsp;
+            <a
+              href='/'
+              target='_blank'
+              rel='noreferrer'>
+              video instruction
+            </a>
+            &nbsp;or&nbsp;
+            <a
+              href='https://t.me/+gzVhlmiYuaxkMGMy'
+              target='_blank'
+              rel='noreferrer'>
+              contact our support
+            </a>
           </div>
         </div>
       </div>

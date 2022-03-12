@@ -1,10 +1,9 @@
 import styles from  './Banner.module.scss';
 import Timer from '../timer/Timer';
 import React from 'react';
-import { isAfter, isBefore } from 'date-fns';
-import { WalletConnectButton, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { isAfter } from 'date-fns';
 
-const mintStartDate = new Date('03-12-2022');
+const mintStartDate = new Date('03-13-2022');
 mintStartDate.setSeconds(mintStartDate.getSeconds() + 5);
 mintStartDate.setMilliseconds(0);
 const mintEndDate = new Date(mintStartDate);

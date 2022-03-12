@@ -44,6 +44,10 @@
 .title, .price {
   font-family: 'Gilroy-Bold', Arial, sans-serif;
   font-size: 44px;
+
+  @media (max-width: 480px) {
+    font-size: 32px;
+  }
 }
 
 .title {
@@ -56,11 +60,19 @@
   font-family: 'Gilroy-Bold', Arial, sans-serif;
   font-size: 24px;
   margin-bottom: 12px;
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
 }
 
 .priceOverline, .availabilityText, .helpText {
   font-family: 'Gilroy-Medium', Arial, sans-serif;
   font-size: 20px;
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
 }
 
 .priceOverline {
@@ -77,9 +89,7 @@
 }
 
 .mintPrice {
-  background: yellow;
   display: grid;
-  padding: 35px 41px;
   margin-bottom: 32px;
   position: relative;
 }
@@ -95,7 +105,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .leftFlower, .rightFlower, .leftStar, .rightStar {
@@ -103,15 +113,15 @@
 }
 
 .leftFlower {
-  top: -15px;
-  left: 30px;
+  top: -30px;
+  left: 18px;
   height: 70px;
   transform: translateX(-100%) scaleX(-1);
 }
 
 .rightFlower {
-  top: -15px;
-  right: 30px;
+  top: -30px;
+  right: 18px;
   height: 70px;
   transform: translateX(100%);
 }
@@ -135,7 +145,11 @@
 .priceUnit {
   font-family: 'Gilroy-Medium', Arial, sans-serif;
   font-size: 32px;
-  margin-bottom: 4px;
+  margin-top: 8px;
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
 }
 
 .connectButton {
