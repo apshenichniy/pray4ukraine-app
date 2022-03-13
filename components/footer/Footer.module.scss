@@ -22,12 +22,23 @@
 }
 
 .links {
+  display: flex;
   font-family: 'Gilroy-Medium', Arial, sans-serif;
   font-size: 18px;
   margin-bottom: 22px;
 
-  & > *:not(:last-child) {
-    margin-right: 32px;
+  @media (min-width: 481px) {
+    & > *:not(:last-child) {
+      margin-right: 32px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+
+    & > *:not(:last-child) {
+      margin-bottom: 12px;
+    }
   }
 }
 

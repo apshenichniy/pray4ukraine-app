@@ -30,7 +30,11 @@ function Mint(props) {
   return (
     <div className={styles.Mint}>
       <div className={styles.background}>
-        <img src='/images/bg.webp' />
+        <picture>
+          <source media="(max-width: 480px)" srcSet='/images/bg-mobile.webp' />
+          <source media="(min-width: 481px)" srcSet='/images/bg.webp' />
+          <img src='/images/bg.webp' />
+        </picture>
       </div>
       <div className={styles.overlay}>
         <div className={styles.popup}>

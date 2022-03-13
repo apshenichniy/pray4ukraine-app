@@ -1,9 +1,9 @@
 import styles from  './Banner.module.scss';
 import Timer from '../timer/Timer';
 import React from 'react';
-import { isAfter } from 'date-fns';
+import { isAfter, parseISO } from 'date-fns';
 
-const mintStartDate = new Date(2022, 2, 13);
+const mintStartDate = parseISO('2022-03-16T04:00:00Z'); // 15 March 2022, 00:00 NY time
 mintStartDate.setSeconds(mintStartDate.getSeconds() + 5);
 mintStartDate.setMilliseconds(0);
 const mintEndDate = new Date(mintStartDate);
