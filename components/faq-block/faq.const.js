@@ -10,7 +10,7 @@ export const faq = [
     },
     {
       title: 'Which percentage is sent to the foundation?',
-      description: 'We care to send the maximum amount with the least commision to the charity. That’s why our collection is built on the Polygon blockchain instead of the usual Ethereum. Full profit is sent directly to the Foundation.',
+      description: 'We care to send the maximum amount with the least commision to the charity. That’s why our collection is built on the Solana blockchain instead of the usual Ethereum. Full profit is sent directly to the Foundation.',
     },    
   ],
   [
