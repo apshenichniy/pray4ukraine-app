@@ -61,7 +61,7 @@ function Mint(props) {
           </div>
           {
             publicKey
-              ? <button onClick={test} className={styles.connectButton + ' button'}>Mint</button>
+              ? <WalletMultiButton className={styles.connectButton + ' button'} />
               : <WalletMultiButton className={styles.connectButton + ' button'} />
           }
           <div className={styles.helpTitle}>
