@@ -3,7 +3,7 @@ import Timer from '../timer/Timer';
 import React from 'react';
 import { isAfter, parseISO } from 'date-fns';
 
-const mintStartDate = parseISO('2022-03-16T04:00:00Z'); // 15 March 2022, 00:00 NY time
+const mintStartDate = parseISO('2022-03-15T04:00:00Z'); // 15 March 2022, 00:00 NY time
 mintStartDate.setSeconds(mintStartDate.getSeconds() + 5);
 mintStartDate.setMilliseconds(0);
 const mintEndDate = new Date(mintStartDate);
