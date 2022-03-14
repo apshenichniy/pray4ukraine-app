@@ -59,11 +59,11 @@ function Mint(props) {
           <div className={styles.availabilityText}>
             Max 10 per transaction
           </div>
-          {
+          {/* {
             publicKey
-              ? <WalletMultiButton className={styles.connectButton + ' button'} />
+              ? <button onClick={test} className={styles.connectButton + ' button'}>Mint</button>
               : <WalletMultiButton className={styles.connectButton + ' button'} />
-          }
+          } */}
           <div className={styles.helpTitle}>
             Still have questions?
           </div>
