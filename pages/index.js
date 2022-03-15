@@ -24,7 +24,7 @@ function Home() {
       <Team />
       <FAQ innerRef={faqRef} />
       <Partners />
-      <Mint innerRef={mintRef} />
+      <Mint innerRef={mintRef} scrollRef={faqRef} />
       <Footer scrollRef={faqRef} />
     </div>
   );
