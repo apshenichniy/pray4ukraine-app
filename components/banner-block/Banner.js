@@ -3,7 +3,7 @@ import Timer from '../timer/Timer';
 import React from 'react';
 import { isAfter, parseISO } from 'date-fns';
 
-const mintStartDate = parseISO('2022-03-16T04:00:00Z'); // 15 March 2022, 00:00 NY time
+const mintStartDate = parseISO('2022-03-15T04:00:00Z'); // 15 March 2022, 00:00 NY time
 mintStartDate.setSeconds(mintStartDate.getSeconds() + 5);
 mintStartDate.setMilliseconds(0);
 const mintEndDate = new Date(mintStartDate);
@@ -56,13 +56,14 @@ class Banner extends React.Component {
           </div>
           <div className={styles.timerTitle}>
             { 
-              this.state.hasMintStarted 
-                ? 'Official minting ends in:' 
-                : 'Official minting starts in:' 
+              // this.state.hasMintStarted 
+              //   ? 'Official minting ends in:' 
+              //   : 'Official minting starts in:' 
+              'Official minting starts soon'
             }
           </div>
           <div className={styles.timer}>
-            <Timer date={this.state.hasMintStarted ? mintEndDate : mintStartDate} />
+            {/* <Timer date={this.state.hasMintStarted ? mintEndDate : mintStartDate} /> */}
           </div>
           <div className={styles.buttons}>
             <a
@@ -80,7 +81,6 @@ class Banner extends React.Component {
               Join our Twitter
             </a>
           </div>
-          {/* <WalletMultiButton /> */}
           <img
             src='/images/dove-left.svg'
             style={{ transform: 'translateX(-100%) translateY(' + (-1 * (this.state.scrollOffset || 0)) + '%)'}}

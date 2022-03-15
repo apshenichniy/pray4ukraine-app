@@ -24,7 +24,7 @@ export const faq = [
     },
     {
       title: 'Where will the money go?',
-      description: 'The full profit from our NFT Art-Project will be transferred directly to the crypto wallets of the Ukrainian Ministry of Digital Transformation. Funds will be automatically transferred to the wallet with the sequence of 5 ETH. All secondary sales royalties will be also sent to the proven Ukrainian government wallet, or towards the charity.',
+      description: 'The full profit from our NFT Art-Project will be transferred directly to the crypto wallets of the fund "Come Back Alive". All secondary sales royalties will be also sent to the proven Ukrainian government wallet, or towards the charity.',
     },        
   ],
 ]

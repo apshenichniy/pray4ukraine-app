@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 48px 88px;
+  padding: 48px 58px;
   background: #fffdfa;
   border-radius: 20px;
   color: #494949;
@@ -116,11 +116,25 @@
   }
 }
 
-.helpText a {
-  font-family: 'Gilroy-SemiBold', Arial, sans-serif;
-  color: #ef5631;
-  display: inline-block; // for non-breaking text in mobile
-}
+.helpText {
+  a, button {
+    padding: 0;
+    font-family: 'Gilroy-SemiBold', Arial, sans-serif;
+    color: #ef5631;
+    display: inline-block; // for non-breaking text in mobile
+  }
+
+  button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+
+    @media (max-width: 480px) {
+      font-size: 18px;
+    }
+  }
+} 
 
 .mintPrice {
   display: grid;
@@ -213,6 +227,72 @@
   @media (max-width: 480px) {
     font-size: 24px;
   }
+}
+
+.mintProgress {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  margin-bottom: 32px;
+
+  @media (max-width: 480px) {
+    margin-bottom: 28px;
+  }
+}
+
+.progressOverline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 9px;
+  font-family: 'Gilroy-Medium', Arial, sans-serif;
+  font-size: 18px;
+
+  @media (max-width: 480px) {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+}
+
+.progressBar {
+  display: block;
+  position: relative;
+  height: 12px;
+  width: 100%;
+  background: rgba(5, 164, 201, 0.2);
+  border-radius: 6px;
+  margin-bottom: 16px;
+
+  @media (max-width: 480px) {
+    margin-bottom: 12px;
+  }
+}
+
+.progress {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: #ef5631;
+  border-radius: 6px;
+}
+
+.progressInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 24px;
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
+}
+
+.progressCount {
+  font-family: 'Gilroy-SemiBold', Arial, sans-serif;
+}
+
+.progressTotal {
+  font-family: 'Gilroy-Medium', Arial, sans-serif;
 }
 
 .connectButton {
