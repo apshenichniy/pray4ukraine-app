@@ -1,0 +1,61 @@
+.PremiumCollection {
+  width: 100%;
+  background: #fdf2e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64px 132px 117px;
+  color: #494949;
+}
+
+.title {
+  font-family: 'Gilroy-Bold', Arial, sans-serif;
+  font-size: 44px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.description {
+  font-family: 'Gilroy-Regular', Arial, sans-serif;
+  font-size: 28px;
+  margin-bottom: 64px;
+  text-align: center;
+  max-width: 713px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  & > *:not(:last-child) {
+    margin-right: 44px;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background: #fffdfa;
+  border-radius: 15px;
+  flex: 0 0 0px;
+}
+
+.cardImage {
+  width: 276px;
+  height: 336px;
+  margin-bottom: 24px;
+}
+
+.cardTitle {
+  font-family: 'Gilroy-Bold', Arial, sans-serif;
+  font-size: 24px;
+  margin-bottom: 11px;
+}
+
+.cardDescription {
+  font-family: 'Avenir-Book', Arial, sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+}

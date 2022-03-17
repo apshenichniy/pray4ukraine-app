@@ -39,9 +39,9 @@
 .button.medium {
   font-size: 18px;
   line-height: 18px;
-  padding: 16px 20px 14px;
+  padding: 15px 20px;
 }
 
 .button.ghost.medium {
-  padding: 14px 18px 12px;
+  padding: 13px 18px;
 }

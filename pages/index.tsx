@@ -9,6 +9,7 @@ import { useRef } from "react";
 import Mint from "../components/mint-block/Mint";
 import StickyMenu from "../components/sticky-menu-block/StickyMenu";
 import Footer from "../components/footer/Footer";
+import PremiumCollection from "../components/premium-collection-block/PremiumCollection";
 import * as anchor from "@project-serum/anchor";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 
@@ -36,6 +37,7 @@ function Home() {
       <Banner />
       <Story />
       <Dove />
+      <PremiumCollection />
       <Team />
       <FAQ innerRef={faqRef} />
       <Partners />

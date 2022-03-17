@@ -34,7 +34,7 @@ function Dove() {
             href='https://twitter.com/wepray4ukraine'
             target='_blank'
             rel='noreferrer'
-            className={styles.bannerButton + ' button'}>
+            className={styles.joinButton + ' button medium'}>
             Join our Twitter
           </a>
         </div>
