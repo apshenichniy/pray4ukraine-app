@@ -173,30 +173,6 @@ const Mint = (props: MintProps) => {
     }
   }, [anchorWallet, props.candyMachineId, props.connection]);
 
-  //const { connection } = useConnection();
-  //const publicKey = null;
-  const { publicKey, sendTransaction } = useWallet();
-  const makeTransaction = async () => {
-    console.log("make a transaction");
-    // if (!publicKey) throw new WalletNotConnectedError();
-
-    // const amount = 1.5 * 1000000000; // 1.5 SOL im lamports
-    // const transaction = new Transaction().add(
-    //     SystemProgram.transfer({
-    //         fromPubkey: publicKey,
-    //         toPubkey: Keypair.generate().publicKey,
-    //         lamports: amount,
-    //     })
-    // );
-    // try {
-    //   const signature = await sendTransaction(transaction, connection);
-
-    //   await connection.confirmTransaction(signature, 'processed');
-    // } catch (e) {
-    //   console.error(e);
-    // }
-  };
-
   const scrollToRef = () => {
     if (!props.scrollRef) {
       return;
@@ -271,11 +247,8 @@ const Mint = (props: MintProps) => {
             </div>
           </div>
           {wallet.connected ? (
-            <button
-              onClick={makeTransaction}
-              className={styles.connectButton + " button"}
-            >
-              Mint
+            <button className={styles.connectButton + " button"}>
+              Mint Now
             </button>
           ) : (
             <WalletMultiButton className={styles.connectButton + " button"}>
