@@ -12,6 +12,8 @@ import Footer from "../components/footer/Footer";
 import PremiumCollection from "../components/premium-collection-block/PremiumCollection";
 import * as anchor from "@project-serum/anchor";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
+import { MintState } from "../components/mint-indicator/mint-state.const";
+import { parseISO } from "date-fns";
 
 const network = process.env.REACT_APP_SOLANA_NETWORK as WalletAdapterNetwork;
 
@@ -29,12 +31,21 @@ const txTimeoutInMilliseconds = 30000;
 function Home() {
   const mintRef = useRef(null);
   const faqRef = useRef(null);
+  const mintState = MintState.SOLD_OUT;
+  const mintStartDate = parseISO('2022-03-20T04:00:00Z'); // 15 March 2022, 00:00 NY time
+  mintStartDate.setSeconds(mintStartDate.getSeconds() + 5);
+  mintStartDate.setMilliseconds(0);
+  const mintEndDate = new Date(mintStartDate);
+  mintEndDate.setDate(mintEndDate.getDate() + 3);
 
   return (
     <div>
       <Header />
-      <StickyMenu scrollRef={mintRef} />
-      <Banner />
+      <StickyMenu scrollRef={mintRef} mintState={mintState} />
+      <Banner
+        mintState={mintState}
+        mintStartDate={mintStartDate}
+        mintEndDate={mintEndDate} />
       <Story />
       <Dove />
       <PremiumCollection />
@@ -48,6 +59,9 @@ function Home() {
         connection={connection}
         txTimeout={txTimeoutInMilliseconds}
         rpcHost={rpcHost}
+        mintState={mintState}
+        mintStartDate={mintStartDate}
+        mintEndDate={mintEndDate}
       />
       <Footer scrollRef={faqRef} />
     </div>

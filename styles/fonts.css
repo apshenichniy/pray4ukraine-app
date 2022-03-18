@@ -19,6 +19,16 @@
 }
 
 @font-face {
+    font-family: 'Gilroy-Black';
+    src: local('Gilroy-Black'), url('/assets/Gilroy-Black.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Gilroy-ExtraBold';
+    src: local('Gilroy-ExtraBold'), url('/assets/Gilroy-ExtraBold.woff') format('woff');
+}
+
+@font-face {
     font-family: 'Avenir-Book';
     src: local('Avenir-Book'), url('/assets/Avenir-Book.woff') format('woff');
 }

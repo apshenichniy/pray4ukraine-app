@@ -1,28 +1,14 @@
 import styles from  './Banner.module.scss';
 import Timer from '../timer/Timer';
 import React from 'react';
-import { isAfter, parseISO } from 'date-fns';
-import { MintIndicator } from '../mint-block/MintIndicator';
-import { MintState } from '../mint-block/mint-state';
-
-const mintStartDate = parseISO('2022-03-20T04:00:00Z'); // 15 March 2022, 00:00 NY time
-mintStartDate.setSeconds(mintStartDate.getSeconds() + 5);
-mintStartDate.setMilliseconds(0);
-const mintEndDate = new Date(mintStartDate);
-mintEndDate.setDate(mintEndDate.getDate() + 3);
+import { MintIndicator } from '../mint-indicator/MintIndicator';
+import { MintState } from '../mint-indicator/mint-state.const';
 
 class Banner extends React.Component {
-
-  // maybe move to props
-  mintState = MintState.SOLD_OUT;
-  mintStartDate = mintStartDate;
-  mintEndDate = mintEndDate;
-
   constructor(props) {
     super(props);
     this.state = {
       scrollOffset: 0,
-      hasMintStarted: this.hasMintStarted(),
     }
   }
 
@@ -33,22 +19,13 @@ class Banner extends React.Component {
         scrollOffset: (scrollY / innerHeight) * 30,
       })
     });
-    this.timerID = setInterval(() => {
-      this.setState({
-        hasMintStarted: this.hasMintStarted(),
-      });
-    }, 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
-
-  hasMintStarted = () => {
-    return isAfter(new Date(), this.mintStartDate);
   }
 
   render() {
+    const { mintState, mintStartDate, mintEndDate } = this.props;
+  
+    const hasMintStarted = [MintState.STARTED, MintState.COMPLETED].includes(mintState);
+    const hasMintSoldOut = mintState === MintState.SOLD_OUT;
     return (
       <div className={styles.Banner}>
         <div className={styles.content}>
@@ -58,29 +35,33 @@ class Banner extends React.Component {
           <div className={styles.title}>
             Unite for peace in Ukraine
           </div>
-          <div className={styles.subtitle}>
+          <div className={`${styles.subtitle} ${!hasMintStarted ? styles.started : null}`}>
             All the money raised will go to the Come Back Alive fund.
           </div>
-          <div className={styles.timerTitle}>
-            { 
-              this.state.hasMintStarted 
-                ? 'Official minting ends in:' 
-                : 'Official minting starts in:' 
-            }
+          <div className={`${styles.mintIndicator} ${hasMintSoldOut ? styles.soldOut : null}`}>
+            <MintIndicator mintState={mintState} />
           </div>
-          <div className={styles.timer}>
-            <Timer date={this.state.hasMintStarted ? this.mintEndDate : this.mintStartDate} />
-          </div>
-          {(() => {
-            if (this.mintState === MintState.SOLD_OUT) {
-              return <div className={styles.soldOutText}>
-                ALL ARTS ALREADY
-              </div>
-            }
-          })()}
-          <div className={styles.mintIndicator}>
-            <MintIndicator mintState={this.mintState} />
-          </div>
+          {
+            (() => {
+              if (hasMintSoldOut) {
+
+                return null;
+              }
+              return <>
+                <div className={styles.timerTitle}>
+                  { 
+                    hasMintStarted
+                      ? 'Official minting will finish in:' 
+                      : 'Official minting starts in:' 
+                  }
+                </div>
+                <div className={styles.timer}>
+                  <Timer date={hasMintStarted ? mintEndDate : mintStartDate} />
+                </div>
+              </>
+            })()
+          }
+         
           <div className={styles.buttons}>
             <a
               href='/documents/NOBEPHMCb.pdf'

@@ -1,5 +1,6 @@
 import { intervalToDuration, isBefore } from 'date-fns';
 import React from 'react';
+import { TimerSize } from './timer-size.const';
 import styles from './Timer.module.scss';
 
 function addZero(number) {
@@ -35,9 +36,9 @@ class Timer extends React.Component {
   getTimerInfo(date) {
     const result = {
       days: 0,
-      hours: 0,
-      minutes: 0,
-      seconds: 0,
+      hours: '00',
+      minutes: '00',
+      seconds: '00',
     };
     const targetDate = typeof date === 'string' ? new Date(date) : date;
     if (!targetDate) {
@@ -64,8 +65,9 @@ class Timer extends React.Component {
   }
 
   render() {
+    const { size } = this.props;
     return (
-      <div className={styles.Timer}>
+      <div className={`${styles.Timer} ${size === TimerSize.SMALL ? styles.small : null}`}>
         <div className={styles.unit}>
           <div className={styles.counter}>{this.state.days}</div>
           <div className={styles.unitName}>days</div>

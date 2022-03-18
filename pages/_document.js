@@ -48,6 +48,20 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
+            href="/assets/Gilroy-Black.woff"
+            as="font"
+            type="font/woff"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="/assets/Gilroy-ExtraBold.woff"
+            as="font"
+            type="font/woff"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
             href="/assets/Avenir-Book.woff"
             as="font"
             type="font/woff"

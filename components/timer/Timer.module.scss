@@ -9,6 +9,11 @@
       margin-right: 20px;
     }
   }
+
+  &.small .counter {
+    font-size: 36px;
+    font-family: 'Gilroy-Bold', Arial, sans-serif;
+  }
 }
 
 .unit {
@@ -18,7 +23,7 @@
 }
 
 .counter {
-  font-family: 'Aftika-ExtraBold', Arial, sans-serif;
+  font-family: 'Gilroy-ExtraBold', Arial, sans-serif;
   font-size: 44px;
   margin-bottom: 6px;
 

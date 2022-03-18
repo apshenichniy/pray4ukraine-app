@@ -4,10 +4,10 @@ function PremiumCollection() {
   return (
     <div className={styles.PremiumCollection}>
       <div className={styles.title}>
-        Premium Collection
+        Exclusive collection with <div className={styles.marked}>50% off</div>
       </div>
       <div className={styles.description}>
-        Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Discount works only for Pray4Ukraine generative NFT holders
       </div>
       <div className={styles.cards}>
         <div className={styles.card}>

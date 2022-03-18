@@ -21,6 +21,16 @@
   background-color: #ef5631;
 }
 
+.button:disabled, .wallet-adapter-button.button:disabled {
+  opacity: 0.5;
+  cursor: auto;
+}
+
+.wallet-adapter-button.button:disabled {
+  background: #ef5631;
+  color: white;
+}
+
 .button.ghost {
   background: transparent;
   border: 2px solid white;

@@ -42,6 +42,8 @@
   border-radius: 20px;
   color: #494949;
   position: relative;
+  max-width: 600px;
+  width: 100%;
 
   @media (max-width: 480px) {
     padding: 40px 24px 36px;
@@ -149,11 +151,8 @@
 .mintPriceBackground {
   grid-row: 1;
   grid-column: 1;
-
-  @media (max-width: 480px) {
-    width: 220px;
-    height: 113px;
-  }
+  width: 180px;
+  height: 92px;
 }
 
 .mintPriceContent {
@@ -171,27 +170,27 @@
 
 .leftFlower {
   top: -30px;
-  left: 18px;
-  height: 70px;
+  left: -10px;
+  height: 64px;
   transform: translateX(-100%) scaleX(-1);
 
   @media (max-width: 480px) {
     width: 64px;
     height: 52px;
-    left: 25px;
+    left: 5px;
   }
 }
 
 .rightFlower {
   top: -30px;
-  right: 18px;
+  right: -10px;
   height: 70px;
   transform: translateX(100%);
 
   @media (max-width: 480px) {
     width: 64px;
     height: 52px;
-    right: 25px;
+    right: 5px;
   }
 }
 
@@ -206,8 +205,8 @@
 }
 
 .rightStar {
-  top: 45px;
-  right: -80px;
+  bottom: 0;
+  right: -100px;
   transform: translateX(100%);
 
   @media (max-width: 480px) {
@@ -295,46 +294,32 @@
   font-family: 'Gilroy-Medium', Arial, sans-serif;
 }
 
-.connectButton {
-  margin-bottom: 56px;
-  min-width: 220px;
-}
-
 .mintIndicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px 10px;
-  border-radius: 5px;
-  background: white;
-  color: #05a4c9;
+  margin-bottom: 8px;
+}
+
+.timerTitle {
+  font-family: 'Gilroy-Regular', Arial, sans-serif;
   font-size: 20px;
-  line-height: 20px;
-  font-family: 'Gilroy-Bold', Arial, sans-serif;
+  margin-bottom: 12px;
 
-  &.big {
-    font-size: 44px;
-    line-height: 44px;
-    padding: 10px 20px;
-    border-radius: 10px;
+  @media (max-width: 480px) {
+    font-size: 16px;
   }
 }
 
-.mintLiveIcon {
-  display: block;
-  animation: 2s infinite steps(2, jump-none) blink;
-  width: 5px;
-  height: 5px;
-  background: #05a4c9;
-  border-radius: 100%;
-  margin-right: 5px;
+.timerBlock {
+  background: rgba(5, 164, 201, 0.1);
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 36px;
+
+  @media (max-width: 480px) {
+    padding: 10px 30px;
+  }
 }
 
-@keyframes blink {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+.connectButton {
+  margin-bottom: 24px;
+  min-width: 220px;
 }

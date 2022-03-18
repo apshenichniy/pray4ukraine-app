@@ -1,0 +1,48 @@
+.MintIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: white;
+  color: #05a4c9;
+  font-size: 20px;
+  line-height: 20px;
+  font-family: 'Gilroy-Black', Arial, sans-serif;
+  min-width: 100px;
+
+  &.big {
+    font-family: 'Gilroy-ExtraBold', Arial, sans-serif;
+    font-size: 44px;
+    line-height: 54px;
+    padding: 2px 24px;
+
+    @media (max-width: 480px) {
+      font-size: 40px;
+    }
+  }
+
+  &.inverted {
+    background: transparent;
+    padding: 0;
+  }
+}
+
+.mintLiveIcon {
+  display: block;
+  animation: 2s infinite steps(2, jump-none) blink;
+  width: 10px;
+  height: 10px;
+  background: #05a4c9;
+  border-radius: 100%;
+  margin-right: 7px;
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

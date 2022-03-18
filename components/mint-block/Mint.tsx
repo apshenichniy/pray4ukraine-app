@@ -9,6 +9,10 @@ import styles from "./Mint.module.scss";
 import { CandyMachineAccount, getCandyMachineState } from "./candy-machine";
 import { AlertState, getAtaForMint, toDate } from "./utils";
 import { MintButton } from "./MintButton";
+import { MintState } from "../mint-indicator/mint-state.const";
+import { MintIndicator } from "../mint-indicator/MintIndicator";
+import Timer from "../timer/Timer";
+import { TimerSize } from "../timer/timer-size.const";
 
 export interface MintProps {
   candyMachineId?: anchor.web3.PublicKey;
@@ -17,6 +21,9 @@ export interface MintProps {
   rpcHost: string;
   innerRef: any;
   scrollRef: any;
+  mintState: MintState;
+  mintStartDate: Date;
+  mintEndDate: Date;
 }
 
 const Mint = (props: MintProps) => {
@@ -35,6 +42,8 @@ const Mint = (props: MintProps) => {
   const [isWhitelistUser, setIsWhitelistUser] = useState(false);
   const [isPresale, setIsPresale] = useState(false);
   const [discountPrice, setDiscountPrice] = useState<anchor.BN>();
+
+  const { mintState, mintStartDate, mintEndDate } = props;
 
   const rpcUrl = props.rpcHost;
   const wallet = useWallet();
@@ -210,7 +219,7 @@ const Mint = (props: MintProps) => {
               className={styles.mintPriceBackground}
             />
             <div className={styles.mintPriceContent}>
-              <div className={styles.price}>1,5</div>
+              <div className={styles.price}>1,50</div>
               <div className={styles.priceUnit}>SOL</div>
             </div>
             <img src="/images/flower.svg" className={styles.leftFlower} />
@@ -235,8 +244,8 @@ const Mint = (props: MintProps) => {
                   maximumFractionDigits: 0,
                 })}
               </span>
-              /
               <span className={styles.progressTotal}>
+                /
                 {candyMachine?.state.itemsAvailable.toLocaleString("en-US", {
                   maximumFractionDigits: 0,
                 })}
@@ -244,18 +253,62 @@ const Mint = (props: MintProps) => {
               <span></span>
             </div>
           </div>
-          {wallet.connected ? (
-            <MintButton
-              candyMachine={candyMachine}
-              isMinting={isUserMinting}
-              onMint={onMint}
-              isActive={isActive || (isPresale && isWhitelistUser)}
-            />
-          ) : (
-            <WalletMultiButton className={styles.connectButton + " button medium"}>
-              Connect Wallet
-            </WalletMultiButton>
-          )}
+          {
+            [MintState.STARTED, MintState.COMPLETED].includes(mintState)
+              ? <div className={styles.mintIndicator}>
+                  <MintIndicator
+                    mintState={mintState}
+                    inverted={true}
+                    color={'#ef5631'} />
+                </div>
+              : null
+          }
+          {
+            [MintState.NOT_STARTED, MintState.STARTED].includes(mintState)
+            ? <>
+                <div className={styles.timerTitle}>
+                  { 
+                    mintState === MintState.NOT_STARTED
+                      ? 'Official minting starts in:' 
+                      : 'Official minting will finish in:' 
+                  }
+                </div>
+                <div className={styles.timerBlock}>
+                  <Timer
+                    date={mintState === MintState.NOT_STARTED ? mintStartDate : mintEndDate} 
+                    size={TimerSize.SMALL} />
+                </div>
+              </>
+            : null
+          }
+          {
+            mintState === MintState.SOLD_OUT
+              ? <div className={styles.timerBlock}>
+                  <MintIndicator
+                    mintState={mintState}
+                    inverted={true}
+                    color={'#494949'} />
+                </div>
+              : null
+          }
+          {
+            !wallet.connected 
+              ? <WalletMultiButton
+                  className={styles.connectButton + " button medium"}
+                  disabled={mintState === MintState.SOLD_OUT}>
+                  Connect Wallet
+                </WalletMultiButton>
+              : null
+          }
+          {wallet.connected && mintState !== MintState.NOT_STARTED
+            ? <MintButton
+                candyMachine={candyMachine}
+                isMinting={isUserMinting}
+                onMint={onMint}
+                isActive={isActive || (isPresale && isWhitelistUser)}
+              />
+            : null
+          }
           <div className={styles.helpTitle}>Still have questions?</div>
           <div className={styles.helpText}>
             Check&nbsp;

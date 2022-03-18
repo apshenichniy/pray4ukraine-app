@@ -1,3 +1,4 @@
+import { MintState } from '../mint-indicator/mint-state.const';
 import styles from './StickyMenu.module.scss';
 
 function StickyMenu(props) {
@@ -46,7 +47,8 @@ function StickyMenu(props) {
             </a>
             <button
               onClick={executeScroll}
-              className={styles.mintButton + ' button secondary small'}>
+              className={styles.mintButton + ' button secondary small'}
+              disabled={props.mintState === MintState.SOLD_OUT}>
               Mint
             </button>
           </div>
