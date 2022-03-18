@@ -252,7 +252,7 @@ const Mint = (props: MintProps) => {
               isActive={isActive || (isPresale && isWhitelistUser)}
             />
           ) : (
-            <WalletMultiButton className={styles.connectButton + " button"}>
+            <WalletMultiButton className={styles.connectButton + " button medium"}>
               Connect Wallet
             </WalletMultiButton>
           )}

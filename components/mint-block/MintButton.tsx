@@ -48,7 +48,7 @@ export const MintButton = ({
 
   return (
     <button
-      className={styles.connectButton + " button"}
+      className={styles.connectButton + " button medium"}
       disabled={clicked || isMinting || !isActive}
       onClick={async () => {
         setClicked(true);

@@ -299,3 +299,42 @@
   margin-bottom: 56px;
   min-width: 220px;
 }
+
+.mintIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: white;
+  color: #05a4c9;
+  font-size: 20px;
+  line-height: 20px;
+  font-family: 'Gilroy-Bold', Arial, sans-serif;
+
+  &.big {
+    font-size: 44px;
+    line-height: 44px;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+}
+
+.mintLiveIcon {
+  display: block;
+  animation: 2s infinite steps(2, jump-none) blink;
+  width: 5px;
+  height: 5px;
+  background: #05a4c9;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
