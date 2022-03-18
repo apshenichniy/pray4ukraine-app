@@ -1,21 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import {
-  WalletConnectButton,
-  WalletMultiButton,
-} from "@solana/wallet-adapter-react-ui";
-import {
-  AnchorWallet,
-  useConnection,
-  useWallet,
-} from "@solana/wallet-adapter-react";
-import { Keypair, SystemProgram, Transaction } from "@solana/web3.js";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { useWallet } from "@solana/wallet-adapter-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import * as anchor from "@project-serum/anchor";
 
 import styles from "./Mint.module.scss";
 import { CandyMachineAccount, getCandyMachineState } from "./candy-machine";
 import { AlertState, getAtaForMint, toDate } from "./utils";
+import { MintButton } from "./MintButton";
 
 export interface MintProps {
   candyMachineId?: anchor.web3.PublicKey;
@@ -64,12 +57,12 @@ const Mint = (props: MintProps) => {
   }, [wallet]);
 
   const refreshCandyMachineState = useCallback(async () => {
-    if (!anchorWallet) {
-      return;
-    }
+    // if (!anchorWallet) {
+    //   return;
+    // }
 
-    const balance = await props.connection.getBalance(anchorWallet.publicKey);
-    setYourSOLBalance(balance);
+    // const balance = await props.connection.getBalance(anchorWallet.publicKey);
+    // setYourSOLBalance(balance);
 
     if (props.candyMachineId) {
       try {
@@ -78,9 +71,9 @@ const Mint = (props: MintProps) => {
           props.candyMachineId,
           props.connection
         );
-        console.info("candy: ", cndy);
         let active =
           cndy?.state.goLiveDate?.toNumber() < new Date().getTime() / 1000;
+        console.log("active: ", active);
         let presale = false;
         // whitelist mint?
         if (cndy?.state.whitelistMintSettings) {
@@ -165,7 +158,8 @@ const Mint = (props: MintProps) => {
         setIsActive((cndy.state.isActive = active));
         setIsPresale((cndy.state.isPresale = presale));
         setCandyMachine(cndy);
-        console.log("cndy: ", cndy);
+
+        console.log("candy: ", cndy);
       } catch (e) {
         console.log("There was a problem fetching Candy Machine state");
         console.log(e);
@@ -189,6 +183,10 @@ const Mint = (props: MintProps) => {
     props.connection,
     refreshCandyMachineState,
   ]);
+
+  const onMint = async () => {
+    console.log("mint");
+  };
 
   return (
     <div className={styles.Mint}>
@@ -247,9 +245,12 @@ const Mint = (props: MintProps) => {
             </div>
           </div>
           {wallet.connected ? (
-            <button className={styles.connectButton + " button"}>
-              Mint Now
-            </button>
+            <MintButton
+              candyMachine={candyMachine}
+              isMinting={isUserMinting}
+              onMint={onMint}
+              isActive={isActive || (isPresale && isWhitelistUser)}
+            />
           ) : (
             <WalletMultiButton className={styles.connectButton + " button"}>
               Connect Wallet
