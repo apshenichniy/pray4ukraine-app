@@ -230,7 +230,12 @@ export const CandyMachineProvider = ({
         wallet: wallet,
         anchorWallet: anchorWallet,
         isActive: isActive,
-        itemsState: itemsState,
+        // todo ADD REAL VALUES!!!!
+        // itemsState: itemsState,
+        itemsState: {
+          available: 9930,
+          redeemed: 0,
+        },
         mintStartDate: toDate(candyMachine?.state.goLiveDate),
         mintEndDate: endDate,
         mintState: mintState,
