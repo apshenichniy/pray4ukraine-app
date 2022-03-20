@@ -1,7 +1,7 @@
 import { GatewayStatus, useGateway } from "@civic/solana-gateway-react";
 import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
-import { CandyMachineAccount } from "./candy-machine";
+import { CandyMachineAccount } from "../candy-machine-provider/candy-machine";
 import styles from "./Mint.module.scss";
 
 export interface MintButtonProps {
@@ -31,14 +31,9 @@ export const MintButton = ({
     if (candyMachine?.state.isSoldOut) {
       return "Sold Out";
     } else if (isMinting) {
-      return <CircularProgress />;
-    } else if (
-      candyMachine?.state.isPresale ||
-      candyMachine?.state.isWhitelistOnly
-    ) {
-      return "Whitelist Mint";
+      return <CircularProgress size={24} />;
     } else if (clicked && candyMachine?.state.gatekeeper) {
-      return <CircularProgress />;
+      return <CircularProgress size={24} />;
     } else if (!isActive) {
       return "Mint Ended";
     }

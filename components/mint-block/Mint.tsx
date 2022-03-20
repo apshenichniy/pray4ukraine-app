@@ -1,24 +1,16 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import { useWallet } from "@solana/wallet-adapter-react";
-import { useCallback, useEffect, useMemo, useState } from "react";
-import * as anchor from "@project-serum/anchor";
 
 import styles from "./Mint.module.scss";
-import { CandyMachineAccount, getCandyMachineState } from "./candy-machine";
-import { AlertState, getAtaForMint, toDate } from "./utils";
 import { MintButton } from "./MintButton";
 import { MintState } from "../mint-indicator/mint-state.const";
 import { MintIndicator } from "../mint-indicator/MintIndicator";
 import Timer from "../timer/Timer";
 import { TimerSize } from "../timer/timer-size.const";
-
+import { useCandyMachine } from "../candy-machine-provider/CandyMachineProvider";
+import { Alert, Snackbar } from "@mui/material";
 export interface MintProps {
-  candyMachineId?: anchor.web3.PublicKey;
-  connection: anchor.web3.Connection;
-  txTimeout: number;
-  rpcHost: string;
   innerRef: any;
   scrollRef: any;
   mintState: MintState;
@@ -27,154 +19,7 @@ export interface MintProps {
 }
 
 const Mint = (props: MintProps) => {
-  const [yourSOLBalance, setYourSOLBalance] = useState<number | null>(null);
-  const [isUserMinting, setIsUserMinting] = useState(false);
-  const [candyMachine, setCandyMachine] = useState<CandyMachineAccount>();
-  const [alertState, setAlertState] = useState<AlertState>({
-    open: false,
-    message: "",
-    severity: undefined,
-  });
-  const [isActive, setIsActive] = useState(false);
-  const [endDate, setEndDate] = useState<Date>();
-  const [itemsRemaining, setItemsRemaining] = useState<number>();
-  const [percentRemaining, setPercentRemaining] = useState<number>(0);
-  const [isWhitelistUser, setIsWhitelistUser] = useState(false);
-  const [isPresale, setIsPresale] = useState(false);
-  const [discountPrice, setDiscountPrice] = useState<anchor.BN>();
-
   const { mintState, mintStartDate, mintEndDate } = props;
-
-  const rpcUrl = props.rpcHost;
-  const wallet = useWallet();
-
-  const anchorWallet = useMemo(() => {
-    if (
-      !wallet ||
-      !wallet.publicKey ||
-      !wallet.signAllTransactions ||
-      !wallet.signTransaction
-    ) {
-      return;
-    }
-
-    return {
-      publicKey: wallet.publicKey,
-      signAllTransactions: wallet.signAllTransactions,
-      signTransaction: wallet.signTransaction,
-    } as anchor.Wallet;
-  }, [wallet]);
-
-  const refreshCandyMachineState = useCallback(async () => {
-    // if (!anchorWallet) {
-    //   return;
-    // }
-
-    // const balance = await props.connection.getBalance(anchorWallet.publicKey);
-    // setYourSOLBalance(balance);
-
-    if (props.candyMachineId) {
-      try {
-        const cndy = await getCandyMachineState(
-          anchorWallet,
-          props.candyMachineId,
-          props.connection
-        );
-        let active =
-          cndy?.state.goLiveDate?.toNumber() < new Date().getTime() / 1000;
-        console.log("active: ", active);
-        let presale = false;
-        // whitelist mint?
-        if (cndy?.state.whitelistMintSettings) {
-          // is it a presale mint?
-          if (
-            cndy.state.whitelistMintSettings.presale &&
-            (!cndy.state.goLiveDate ||
-              cndy.state.goLiveDate.toNumber() > new Date().getTime() / 1000)
-          ) {
-            presale = true;
-          }
-          // is there a discount?
-          if (cndy.state.whitelistMintSettings.discountPrice) {
-            setDiscountPrice(cndy.state.whitelistMintSettings.discountPrice);
-          } else {
-            setDiscountPrice(undefined);
-            // when presale=false and discountPrice=null, mint is restricted
-            // to whitelist users only
-            if (!cndy.state.whitelistMintSettings.presale) {
-              cndy.state.isWhitelistOnly = true;
-            }
-          }
-          // retrieves the whitelist token
-          const mint = new anchor.web3.PublicKey(
-            cndy.state.whitelistMintSettings.mint
-          );
-          const token = (await getAtaForMint(mint, anchorWallet.publicKey))[0];
-
-          try {
-            const balance = await props.connection.getTokenAccountBalance(
-              token
-            );
-            let valid = parseInt(balance.value.amount) > 0;
-            // only whitelist the user if the balance > 0
-            setIsWhitelistUser(valid);
-            active = (presale && valid) || active;
-          } catch (e) {
-            setIsWhitelistUser(false);
-            // no whitelist user, no mint
-            if (cndy.state.isWhitelistOnly) {
-              active = false;
-            }
-            console.log("There was a problem fetching whitelist token balance");
-            console.log(e);
-          }
-        }
-        // datetime to stop the mint?
-        if (cndy?.state.endSettings?.endSettingType.date) {
-          setEndDate(toDate(cndy.state.endSettings.number));
-          if (
-            cndy.state.endSettings.number.toNumber() <
-            new Date().getTime() / 1000
-          ) {
-            active = false;
-          }
-        }
-        // amount to stop the mint?
-        if (cndy?.state.endSettings?.endSettingType.amount) {
-          let limit = Math.min(
-            cndy.state.endSettings.number.toNumber(),
-            cndy.state.itemsAvailable
-          );
-          if (cndy.state.itemsRedeemed < limit) {
-            setItemsRemaining(limit - cndy.state.itemsRedeemed);
-            setPercentRemaining((100 * cndy.state.itemsRedeemed) / limit);
-          } else {
-            setItemsRemaining(0);
-            setPercentRemaining(1 * 100);
-            cndy.state.isSoldOut = true;
-          }
-        } else {
-          setItemsRemaining(cndy.state.itemsRemaining);
-          setPercentRemaining(
-            (100 * cndy.state.itemsRedeemed) / cndy.state.itemsAvailable
-          );
-        }
-
-        if (cndy.state.isSoldOut) {
-          active = false;
-        }
-
-        setIsActive((cndy.state.isActive = active));
-        setIsPresale((cndy.state.isPresale = presale));
-        setCandyMachine(cndy);
-
-        console.log("candy: ", cndy);
-      } catch (e) {
-        console.log("There was a problem fetching Candy Machine state");
-        console.log(e);
-      }
-    }
-  }, [anchorWallet, props.candyMachineId, props.connection]);
 
   const scrollToRef = () => {
     if (!props.scrollRef) {
@@ -184,18 +29,15 @@ const Mint = (props: MintProps) => {
     props.scrollRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(() => {
-    refreshCandyMachineState();
-  }, [
-    anchorWallet,
-    props.candyMachineId,
-    props.connection,
-    refreshCandyMachineState,
-  ]);
-
-  const onMint = async () => {
-    console.log("mint");
-  };
+  const {
+    candyMachine,
+    wallet,
+    onMint,
+    isUserMinting,
+    itemsState,
+    alertState,
+    setAlertState,
+  } = useCandyMachine();
 
   return (
     <div className={styles.Mint}>
@@ -230,85 +72,92 @@ const Mint = (props: MintProps) => {
           <div className={styles.mintProgress}>
             <div className={styles.progressOverline}>
               <span>Total minted</span>
-              <span>{percentRemaining.toFixed(0)}%</span>
+              <span>
+                {((100 * itemsState?.redeemed) / itemsState?.available).toFixed(
+                  0
+                )}
+                %
+              </span>
             </div>
             <div className={styles.progressBar}>
               <div
                 className={styles.progress}
-                style={{ width: `${percentRemaining.toFixed(0)}%` }}
+                style={{
+                  width: `${(
+                    (100 * itemsState?.redeemed) /
+                    itemsState?.available
+                  ).toFixed(0)}%`,
+                }}
               ></div>
             </div>
             <div className={styles.progressInfo}>
               <span className={styles.progressCount}>
-                {candyMachine?.state.itemsRedeemed.toLocaleString("en-US", {
+                {itemsState?.redeemed.toLocaleString("en-US", {
                   maximumFractionDigits: 0,
                 })}
               </span>
               <span className={styles.progressTotal}>
                 /
-                {candyMachine?.state.itemsAvailable.toLocaleString("en-US", {
+                {itemsState?.available.toLocaleString("en-US", {
                   maximumFractionDigits: 0,
                 })}
               </span>
               <span></span>
             </div>
           </div>
-          {
-            [MintState.STARTED, MintState.COMPLETED].includes(mintState)
-              ? <div className={styles.mintIndicator}>
-                  <MintIndicator
-                    mintState={mintState}
-                    inverted={true}
-                    color={'#ef5631'} />
-                </div>
-              : null
-          }
-          {
-            [MintState.NOT_STARTED, MintState.STARTED].includes(mintState)
-            ? <>
-                <div className={styles.timerTitle}>
-                  { 
-                    mintState === MintState.NOT_STARTED
-                      ? 'Official minting starts in:' 
-                      : 'Official minting will finish in:' 
-                  }
-                </div>
-                <div className={styles.timerBlock}>
-                  <Timer
-                    date={mintState === MintState.NOT_STARTED ? mintStartDate : mintEndDate} 
-                    size={TimerSize.SMALL} />
-                </div>
-              </>
-            : null
-          }
-          {
-            mintState === MintState.SOLD_OUT
-              ? <div className={styles.timerBlock}>
-                  <MintIndicator
-                    mintState={mintState}
-                    inverted={true}
-                    color={'#494949'} />
-                </div>
-              : null
-          }
-          {
-            !wallet.connected 
-              ? <WalletMultiButton
-                  className={styles.connectButton + " button medium"}
-                  disabled={mintState === MintState.SOLD_OUT}>
-                  Connect Wallet
-                </WalletMultiButton>
-              : null
-          }
-          {wallet.connected && mintState !== MintState.NOT_STARTED
-            ? <MintButton
-                candyMachine={candyMachine}
-                isMinting={isUserMinting}
-                onMint={onMint}
-                isActive={isActive || (isPresale && isWhitelistUser)}
+          {[MintState.STARTED, MintState.COMPLETED].includes(mintState) ? (
+            <div className={styles.mintIndicator}>
+              <MintIndicator
+                mintState={mintState}
+                inverted={true}
+                color={"#ef5631"}
               />
-            : null
-          }
+            </div>
+          ) : null}
+          {[MintState.NOT_STARTED, MintState.STARTED].includes(mintState) ? (
+            <>
+              <div className={styles.timerTitle}>
+                {mintState === MintState.NOT_STARTED
+                  ? "Official minting starts in:"
+                  : "Official minting will finish in:"}
+              </div>
+              <div className={styles.timerBlock}>
+                <Timer
+                  date={
+                    mintState === MintState.NOT_STARTED
+                      ? mintStartDate
+                      : mintEndDate
+                  }
+                  size={TimerSize.SMALL}
+                />
+              </div>
+            </>
+          ) : null}
+          {mintState === MintState.SOLD_OUT ? (
+            <div className={styles.timerBlock}>
+              <MintIndicator
+                mintState={mintState}
+                inverted={true}
+                color={"#494949"}
+              />
+            </div>
+          ) : null}
+          {!wallet.connected ? (
+            <WalletMultiButton
+              className={styles.connectButton + " button medium"}
+              disabled={mintState === MintState.SOLD_OUT}
+            >
+              Connect Wallet
+            </WalletMultiButton>
+          ) : null}
+          {wallet.connected && mintState !== MintState.NOT_STARTED ? (
+            <MintButton
+              candyMachine={candyMachine}
+              isMinting={isUserMinting}
+              onMint={onMint}
+              isActive={mintState == MintState.STARTED}
+            />
+          ) : null}
           <div className={styles.helpTitle}>Still have questions?</div>
           <div className={styles.helpText}>
             Check&nbsp;
@@ -334,6 +183,19 @@ const Mint = (props: MintProps) => {
           </div>
         </div>
       </div>
+      <Snackbar
+        open={alertState.open}
+        autoHideDuration={6000}
+        onClose={() => setAlertState({ ...alertState, open: false })}
+      >
+        <Alert
+          onClose={() => setAlertState({ ...alertState, open: false })}
+          severity={alertState.severity}
+          sx={{ fontFamily: "'Gilroy-Bold', Arial, sans-serif", fontSize: 16 }}
+        >
+          {alertState.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
