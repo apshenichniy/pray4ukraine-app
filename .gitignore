@@ -37,5 +37,7 @@ yarn-error.log*
 # vs code
 nftapp.code-workspace
 
+.cache
+
 # idea
 .idea
