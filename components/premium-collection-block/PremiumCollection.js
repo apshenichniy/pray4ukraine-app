@@ -18,7 +18,7 @@ function PremiumCollection() {
             Mournful Mother
           </div>
           <div className={styles.cardDescription}>
-            My art is powerfully emotional cause it’s about suffering from war. This piece symbolises a mourning and crying mother, which one can interpret to be both as a Ukrainian mother or Ukraine as whole, deeply saddened for those who have lost their lives and their loved ones.
+            My art is powerfully emotional cause it&apos;s about suffering from war. This piece symbolises a mourning and crying mother, which one can interpret to be both as a Ukrainian mother or Ukraine as whole, deeply saddened for those who have lost their lives and their loved ones.
           </div>
         </div>
         <div className={styles.card}>
@@ -29,7 +29,7 @@ function PremiumCollection() {
             Saving lives
           </div>
           <div className={styles.cardDescription}>
-            I have a little daughter who is inspiring me to live. The war makes me feel unsafe. And I know I can't even find a safe place for my daughter. But there are people who are taking a bigger risk. Its our army, those men and women who fight for us, surfing their lives to save our children. I hope my art will help the superheroes of our country.
+            I have a little daughter who is inspiring me to live. The war makes me feel unsafe. And I know I can&apos;t even find a safe place for my daughter. But there are people who are taking a bigger risk. Its our army, those men and women who fight for us, surfing their lives to save our children. I hope my art will help the superheroes of our country.
           </div>
         </div>
         <div className={styles.card}>
