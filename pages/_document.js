@@ -55,7 +55,7 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="/assets/Gilroy-ExtraBold.woff"
+            href="/assets/Gilroy-Extrabold.woff"
             as="font"
             type="font/woff"
             crossOrigin="anonymous"

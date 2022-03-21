@@ -24,8 +24,8 @@
 }
 
 @font-face {
-    font-family: 'Gilroy-ExtraBold';
-    src: local('Gilroy-ExtraBold'), url('/assets/Gilroy-ExtraBold.woff') format('woff');
+    font-family: 'Gilroy-Extrabold';
+    src: local('Gilroy-Extrabold'), url('/assets/Gilroy-Extrabold.woff') format('woff');
 }
 
 @font-face {
