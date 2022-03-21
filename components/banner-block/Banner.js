@@ -21,6 +21,14 @@ class Banner extends React.Component {
     });
   }
 
+  executeScroll = () => {
+    if (!this.props.scrollRef || !this.props.scrollRef.current) {
+
+      return;
+    }
+    this.props.scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
+
   render() {
     const { mintState, mintStartDate, mintEndDate } = this.props;
   
@@ -70,13 +78,22 @@ class Banner extends React.Component {
               className={styles.bannerButton + ' button ghost medium'}>
               Fund Agreement
             </a>
-            <a
-              href='https://twitter.com/wepray4ukraine'
-              target='_blank'
-              rel='noreferrer'
-              className={styles.bannerButton + ' button medium'}>
-              Join our Twitter
-            </a>
+            {
+              mintState === MintState.NOT_STARTED 
+                ? <a
+                    href='https://twitter.com/wepray4ukraine'
+                    target='_blank'
+                    rel='noreferrer'
+                    className={styles.bannerButton + ' button medium'}>
+                    Join our Twitter
+                  </a>
+                : <button
+                    onClick={this.executeScroll}
+                    className={`${styles.bannerButton} button medium`}
+                    disabled={mintState === MintState.SOLD_OUT}>
+                    Mint
+                  </button>
+            }
           </div>
           <img
             src='/images/dove-left.svg'

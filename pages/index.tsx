@@ -26,6 +26,7 @@ function Home() {
         mintState={mintState}
         mintStartDate={mintStartDate}
         mintEndDate={mintEndDate}
+        scrollRef={mintRef}
       />
       <Story />
       <Dove />
