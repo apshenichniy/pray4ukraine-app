@@ -106,13 +106,17 @@ const Mint = (props: MintProps) => {
             </div>
           </div>
           {[MintState.STARTED, MintState.COMPLETED].includes(mintState) ? (
-            <div className={styles.mintIndicator}>
-              <MintIndicator
-                mintState={mintState}
-                inverted={true}
-                color={"#ef5631"}
-              />
-            </div>
+            <>
+              <div className={styles.mintIndicator}>
+                <MintIndicator
+                  mintState={mintState}
+                  inverted={true}
+                  color={"#ef5631"}
+                />
+              </div>
+              <div className={styles.hint}>Join our <a href='https://discord.gg/BRPrEbMgJP' target='_blank' rel='noreferrer'>discord</a> after buying!</div>
+            </>
+            
           ) : null}
           {[MintState.NOT_STARTED, MintState.STARTED].includes(mintState) ? (
             <>
