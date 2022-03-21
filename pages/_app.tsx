@@ -45,7 +45,7 @@ const candyMachineId = process.env.NEXT_PUBLIC_CANDY_MACHINE_ID
 const network = process.env.NEXT_PUBLIC_SOLANA_NETWORK as WalletAdapterNetwork;
 const rpcHost = process.env.NEXT_PUBLIC_SOLANA_RPC_HOST;
 const connection = new anchor.web3.Connection(
-  rpcHost ? rpcHost : anchor.web3.clusterApiUrl("devnet")
+  rpcHost ? rpcHost : anchor.web3.clusterApiUrl("mainnet-beta")
 );
 
 const Context = ({ children }) => {
