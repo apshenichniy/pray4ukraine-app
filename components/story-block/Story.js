@@ -46,7 +46,7 @@ class Story extends React.Component {
             All funds to the War victims
           </div>
           <div className={styles.description}>
-            All the money will go to the charity <a href='https://savelife.in.ua/'>https://savelife.in.ua/</a>, the biggest Ukrainian charity foundation, and will only be used for peaceful purposes in Ukraine, to support the Ukrainian army and the victims.
+            All the money will go to the charity <a href='http://www.comebackalive.in.ua/' target='_blank' rel='noreferrer'>http://www.comebackalive.in.ua/</a>, the biggest Ukrainian charity foundation, and will only be used for peaceful purposes in Ukraine, to support the Ukrainian army and the victims.
           </div>
           <img
             src='/images/heart-left.svg'

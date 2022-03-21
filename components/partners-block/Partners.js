@@ -15,7 +15,10 @@ function Partners() {
             target='_blank'
             rel='noreferrer'
             className='partner'>
-            <img src={partner.partner.logo} />
+            <img
+              src={partner.partner.logo}
+              width={partner.width}
+              height={partner.height} />
           </a>
         )}
       </div>

@@ -5,31 +5,48 @@ const partners = {
   },
   divergent: {
     url: 'http://dvrgnt.agency/eng',
-    logo: '/images/partner-divergent.webp',
+    logo: '/images/partner-divergent.png',
   },
   imaginus: {
     url: 'https://imaginusvr.com',
-    logo: '/images/partner-imaginus.webp',
+    logo: '/images/partner-imaginus.png',
   },
   shatyrko: {
     url: 'https://shatyrko.com/',
-    logo: '/images/partner-shatyrko.webp',
+    logo: '/images/partner-shatyrko.png',
   },
+  aga: {
+    url: 'https://shatyrko.com/',
+    logo: '/images/partner-aga.png',
+  }
 };
 
 export const desktopPartners = [
   {
     partner: partners.savelife,
+    width: 200,
+    height: 80,
   },
   {
     partner: partners.divergent,
+    width: 97,
+    height: 101,
   },
   {
     partner: partners.imaginus,
+    width: 273,
+    height: 62,
   },
   {
     partner: partners.shatyrko,
+    width: 108,
+    height: 113,
   },
+  // {
+  //   partner: partners.aga,
+  //   width: 210,
+  //   height: 65,
+  // },
 ];
 
 export const mobilePartners = [
@@ -53,4 +70,9 @@ export const mobilePartners = [
     width: 175,
     height: 40,
   },
+  // {
+  //   partner: partners.aga,
+  //   width: 164,
+  //   height: 53,
+  // }
 ];

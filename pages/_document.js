@@ -82,12 +82,12 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <title>PRAY4UKRAINE</title>
-          <meta name="description" content="NFT collection created in official partnership with savelife.in.ua to help war affected families in Ukraine." />
+          <meta name="description" content="NFT collection created in official partnership with www.comebackalive.in.ua to help war affected families in Ukraine." />
           <meta name="keywords" content="nft, Ukraine, support Ukraine" />
           <meta name="author" content="Pray4Ukraine" /> 
 
           <meta property="og:title" content="PRAY4UKRAINE" />
-          <meta property="og:description" content="NFT collection created in official partnership with savelife.in.ua to help war affected families in Ukraine." />
+          <meta property="og:description" content="NFT collection created in official partnership with www.comebackalive.in.ua to help war affected families in Ukraine." />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://www.pray4ukraine.world/" />
           <meta property="og:site_name" content="Pray4Ukraine" />
