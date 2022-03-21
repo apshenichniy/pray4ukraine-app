@@ -309,13 +309,17 @@
 }
 
 .timerBlock {
+  display: flex;
+  justify-content: center;
   background: rgba(5, 164, 201, 0.1);
   padding: 10px 20px;
   border-radius: 8px;
   margin-bottom: 36px;
+  width: 340px;
 
   @media (max-width: 480px) {
     padding: 10px 30px;
+    width: 260px;
   }
 }
 
