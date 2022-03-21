@@ -83,6 +83,19 @@
   font-family: 'Avenir-Book', Arial, sans-serif;
   font-size: 20px;
   line-height: 28px;
+  height: 225px;
+  overflow-y: auto;
+  padding-right: 20px;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 10px;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #d8d8d8;
+    border-radius: 5px;
+}
 }
 
 .marked {

@@ -174,7 +174,7 @@ const Mint = (props: MintProps) => {
             )}
             &nbsp;or&nbsp;
             <a
-              href="https://t.me/+gzVhlmiYuaxkMGMy"
+              href="https://wa.me/+380505875379"
               target="_blank"
               rel="noreferrer"
             >
