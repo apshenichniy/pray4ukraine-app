@@ -16,7 +16,7 @@ const partners = {
     logo: '/images/partner-shatyrko.png',
   },
   aga: {
-    url: 'https://shatyrko.com/',
+    url: 'http://agadvert.com/',
     logo: '/images/partner-aga.png',
   }
 };
@@ -42,11 +42,11 @@ export const desktopPartners = [
     width: 108,
     height: 113,
   },
-  // {
-  //   partner: partners.aga,
-  //   width: 210,
-  //   height: 65,
-  // },
+  {
+    partner: partners.aga,
+    width: 210,
+    height: 65,
+  },
 ];
 
 export const mobilePartners = [
@@ -70,9 +70,9 @@ export const mobilePartners = [
     width: 175,
     height: 40,
   },
-  // {
-  //   partner: partners.aga,
-  //   width: 164,
-  //   height: 53,
-  // }
+  {
+    partner: partners.aga,
+    width: 164,
+    height: 53,
+  }
 ];
