@@ -69,7 +69,7 @@ const Mint = (props: MintProps) => {
             <img src="/images/star-1.svg" className={styles.leftStar} />
             <img src="/images/star-2.svg" className={styles.rightStar} />
           </div>
-          <div className={styles.mintProgress}>
+          {/* <div className={styles.mintProgress}>
             <div className={styles.progressOverline}>
               <span>Total minted</span>
               <span>
@@ -104,7 +104,7 @@ const Mint = (props: MintProps) => {
               </span>
               <span></span>
             </div>
-          </div>
+          </div> */}
           {[MintState.STARTED, MintState.COMPLETED].includes(mintState) ? (
             <>
               <div className={styles.mintIndicator}>
