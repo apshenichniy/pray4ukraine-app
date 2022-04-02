@@ -2,6 +2,7 @@ import Header from "../components/header/Header";
 import Banner from "../components/banner-block/Banner";
 import Story from "../components/story-block/Story";
 import Dove from "../components/dove-block/Dove";
+import Roadmap from "../components/roadmap-block/Roadmap";
 import Team from "../components/team-block/Team";
 import FAQ from "../components/faq-block/FAQ";
 import Partners from "../components/partners-block/Partners";
@@ -30,6 +31,7 @@ function Home() {
       />
       <Story />
       <Dove />
+      <Roadmap />
       <PremiumCollection />
       <Team />
       <FAQ innerRef={faqRef} />

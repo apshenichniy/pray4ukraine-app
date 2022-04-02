@@ -5,7 +5,7 @@
   color: #494949;
   padding: 68px 20px 96px 20px;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1180px) {
     padding: 40px 35px 8px 35px;
   }
 }
@@ -16,7 +16,7 @@
   text-align: center;
   margin-bottom: 32px;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1180px) {
     font-size: 32px;
   }
 }
@@ -30,7 +30,7 @@
 .content {
   justify-content: center;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1180px) {
     display: none;
   }
 
@@ -43,7 +43,7 @@
   justify-content: space-around;
   flex-wrap: wrap;
 
-  @media (min-width: 901px) {
+  @media (min-width: 1181px) {
     display: none;
   }
 

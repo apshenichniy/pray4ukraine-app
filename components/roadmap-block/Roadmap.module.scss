@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+$highlight-color: #49A1C5;
+
+.Roadmap {
+  width: 100%;
+  font-family: 'Inter', Arial, sans-serif;
+  padding: 35px 35px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 1280px) {
+    align-items: flex-start;
+  }
+
+  .description {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 55px;
+    max-width: 1111px;
+    text-align: center;
+    margin-bottom: 58px;
+
+    @media (max-width: 1280px) {
+      align-self: stretch;
+      font-size: 16px;
+      line-height: 27px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .marked {
+    color: $highlight-color;
+    font-weight: 900;
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+  
+    &::before {
+      content: '';
+      height: 15px;
+      width: calc(100% + 2px);
+      position: absolute;
+      bottom: 7px;
+      left: -1px;
+      background: #F8D648;
+      z-index: -1;
+
+      @media (max-width: 1280px) {
+        bottom: 3px;
+        height: 10px;
+      }
+    }
+  }
+
+  .roadmap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 1280px) {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  .roadmapImage {
+    width: 465px;
+
+    @media (max-width: 1280px) {
+      width: 167px;
+    }
+  }
+
+  .roadmapBlock {
+    position: absolute;
+    font-size: 18px;
+
+    @media (min-width: 1281px) {
+      &:nth-child(2n) {
+        max-width: 357px;
+        right: 0;
+        transform: translateX(100%);
+      }
+  
+      &:nth-child(2n+1) {
+        max-width: 372px;
+        left: 0;
+        transform: translateX(-100%);
+      }
+  
+      &:nth-child(2) {
+        top: 0; 
+      }
+  
+      &:nth-child(3) {
+        top: 260px; 
+      }
+  
+      &:nth-child(4) {
+        top: 530px; 
+      }
+  
+      &:nth-child(5) {
+        top: 770px; 
+      }
+  
+      &:nth-child(6) {
+        top: 1040px; 
+      }
+    }
+
+    @media (max-width: 1280px) {
+      font-size: 15px;
+      left: 42px;
+      line-height: 18px;
+
+      &:nth-child(2) {
+        top: 110px; 
+      }
+  
+      &:nth-child(3) {
+        top: 430px; 
+      }
+  
+      &:nth-child(4) {
+        top: 770px; 
+      }
+  
+      &:nth-child(5) {
+        top: 1105px; 
+      }
+  
+      &:nth-child(6) {
+        top: 1530px; 
+      }
+    }
+  }
+
+  .blockTitle {
+    color: $highlight-color;
+    font-weight: 700;
+    font-size: 24px;
+
+    @media (max-width: 1280px) {
+      font-size: 18px;
+    }
+  }
+
+  .blockDescription {
+    font-weight: 400;
+    list-style-type: '- ';
+    padding-left: 7px;
+  }
+
+  .blockGoalTitle {
+    color: $highlight-color;
+    font-weight: 700;
+  }
+
+}
