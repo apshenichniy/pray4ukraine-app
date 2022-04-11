@@ -44,7 +44,9 @@ class Banner extends React.Component {
             Unite for peace in Ukraine
           </div>
           <div className={`${styles.subtitle} ${!hasMintStarted ? styles.started : null}`}>
-            All the money raised will go to the Come Back Alive fund.
+            {//All the money raised will go to the Come Back Alive fund.
+            }
+            Pray4Ukraine unites 1100 artists that created more than 10 000 NFTs to support Ukraine
           </div>
           <div className={`${styles.mintIndicator} ${hasMintSoldOut ? styles.soldOut : null}`}>
             <MintIndicator mintState={mintState} />
@@ -55,6 +57,7 @@ class Banner extends React.Component {
 
                 return null;
               }
+              /*
               return <>
                 <div className={styles.timerTitle}>
                   { 
@@ -66,8 +69,11 @@ class Banner extends React.Component {
                 <div className={styles.timer}>
                   <Timer date={hasMintStarted ? mintEndDate : mintStartDate} />
                 </div>
-              </>
-            })()
+              </>*/
+              return null;
+            }
+            
+            )()
           }
          
           <div className={styles.buttons}>
