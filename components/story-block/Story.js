@@ -26,8 +26,21 @@ class Story extends React.Component {
             About The Project
           </div>
           <div className={styles.description}>
-            Pray4Ukraine is a charitable project developed to mobilize the crypto-community around the world to support Ukraine. The beating heart of this project is the artists. The project brought together 1100 digital artists from Ukraine and other corners of the world, each with a personal story directly influenced by the war. Amplifying their voices and spreading their vision is one of the priorities of Pray4Ukraine. A blend of classic art and modern technology is a powerful tool. The Pray4Ukraine artists created a collection of 10,000 NFT art pieces thematically spinning around the ongoing struggle for freedom and democracy in Ukraine.Pray4Ukraine is a product of a partnership with the Come Back Alive foundation. The foundation has been on the humanitarian frontline since May 2014. Come Back Alive adheres to its principle of providing life-saving assistance. This includes life-preserving equipment for the Ukrainian defenders, medical care and rehabilitation for veterans, training, etc. Together we can end this war and save countless lives in Ukraine. Crypto community, it is time to mint and help Ukraine!
+            Pray4Ukraine is a charitable project developed to mobilize the crypto-community around the world to support Ukraine. 
           </div> 
+          <div className={styles.description}>
+            The beating heart of this project is the artists. The project brought together 1100 digital artists from Ukraine and other corners of the world, each with a personal story directly influenced by the war. Amplifying their voices and spreading their vision is one of the priorities of Pray4Ukraine. 
+          </div>
+          <div className={styles.description}>
+            A blend of classic art and modern technology is a powerful tool. The Pray4Ukraine artists created a collection of 10,000 NFT art pieces thematically spinning around the ongoing struggle for freedom and democracy in Ukraine.
+          </div>
+          <div className={styles.description}>
+            Pray4Ukraine is a product of a partnership with the Come Back Alive foundation. The foundation has been on the humanitarian frontline since May 2014. Come Back Alive adheres to its principle of providing life-saving assistance. This includes life-preserving equipment for the Ukrainian defenders, medical care and rehabilitation for veterans, training, etc. 
+          </div>
+          <div className={styles.description}>
+            Together we can end this war and save countless lives in Ukraine. Crypto community, it is time to mint and help Ukraine!
+          </div>
+{/*
           <div className={styles.subtitle}>
             Story Behind This Project: February 24th, at 5 a.m
           </div>
@@ -51,6 +64,7 @@ class Story extends React.Component {
           <div className={styles.description}>
             All the money will go to the charity <a href='http://www.comebackalive.in.ua/' target='_blank' rel='noreferrer'>http://www.comebackalive.in.ua/</a>, the biggest Ukrainian charity foundation, and will only be used for peaceful purposes in Ukraine, to support the Ukrainian army and the victims.
           </div>
+    */}
           <img
             src='/images/heart-left.svg'
             style={{ transform: 'translateX(-100%) translateY(' + (-1 * (this.state.scrollOffset || 0)) + '%)'}}
