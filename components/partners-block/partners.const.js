@@ -18,6 +18,10 @@ const partners = {
   aga: {
     url: 'http://agadvert.com/',
     logo: '/images/partner-aga.png',
+  },
+  fwdnft: {
+    url: 'https://twitter.com/FWDNFT',
+    logo: '/images/fwdnft.png',
   }
 };
 
@@ -47,6 +51,11 @@ export const desktopPartners = [
     width: 210,
     height: 65,
   },
+  {
+    partner: partners.fwdnft,
+    width: 133,
+    height: 133,
+  }
 ];
 
 export const mobilePartners = [
@@ -74,5 +83,10 @@ export const mobilePartners = [
     partner: partners.aga,
     width: 164,
     height: 53,
-  }
+  },
+  {
+    partner: partners.fwdnft,
+    width: 133,
+    height: 133,
+  }  
 ];

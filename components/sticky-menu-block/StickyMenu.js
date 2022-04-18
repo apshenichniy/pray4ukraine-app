@@ -45,12 +45,14 @@ function StickyMenu(props) {
               className={styles.shareButton}>
               <img src='/images/social-media-instagram.svg' />
             </a>
+            {/*
             <button
               onClick={executeScroll}
               className={styles.mintButton + ' button secondary small'}
               disabled={props.mintState === MintState.SOLD_OUT}>
               Mint
             </button>
+  */}
           </div>
         </div>
       </div>

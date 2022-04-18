@@ -36,6 +36,7 @@ function Home() {
       <Team />
       <FAQ innerRef={faqRef} />
       <Partners />
+{/* 
       <Mint
         innerRef={mintRef}
         scrollRef={faqRef}
@@ -43,6 +44,7 @@ function Home() {
         mintStartDate={mintStartDate}
         mintEndDate={mintEndDate}
       />
+*/}      
       <Footer scrollRef={faqRef} />
     </div>
   );

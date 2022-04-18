@@ -84,7 +84,7 @@ class Banner extends React.Component {
               className={styles.bannerButton + ' button ghost medium'}>
               Fund Agreement
             </a>
-            {
+            {/*
               mintState === MintState.NOT_STARTED 
                 ? <a
                     href='https://twitter.com/wepray4ukraine'
@@ -99,7 +99,14 @@ class Banner extends React.Component {
                     disabled={mintState === MintState.SOLD_OUT}>
                     Mint
                   </button>
-            }
+        */}
+          <a
+            href='https://opensea.io/collection/p4ukr'
+            target='_blank'
+            rel='noreferrer'
+            className={styles.bannerButton + ' button medium'}>
+            OpenSea
+          </a>
           </div>
           <img
             src='/images/dove-left.svg'
